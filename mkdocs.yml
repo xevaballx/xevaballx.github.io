@@ -1,0 +1,55 @@
+site_name: AI and ML Notes
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.sections
+  palette:
+    scheme: default
+    primary: custom
+
+plugins:
+  - mermaid2
+  - search
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.arithmatex
+  - pymdownx.highlight
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+      
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Patterns:
+      - Overview: patterns/index.md
+  - Machine Learning:
+      - Overview: ml/index.md
+  - NLP:
+      - Overview: nlp/index.md
+      - Distributional Semantics: nlp/distributional_semantics.md
+  - Deep Learning:
+      - Overview: dl/index.md
+  - AI for Robotics:
+      - Overview: robotics/index.md
+  - Reinforcement Learning:
+      - Overview: rl/index.md
+
+
+      
+
+
