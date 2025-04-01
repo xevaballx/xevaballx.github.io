@@ -1,0 +1,22 @@
+ /* Change primary color to very dark green */
+[data-md-color-primary="custom"] {
+    --md-primary-fg-color: #0b3d0b;
+    --md-primary-fg-color--light: #145214; /* Very dark green */
+    --md-primary-fg-color--dark: #062706;
+    --md-primary-bg-color: #ffffff;
+    --md-primary-bg-color--light: #f5f5f5;
+  }
+
+  /* Change nav item hover color (top navigation bar) */
+.md-header__link:hover,
+.md-nav__link:hover {
+    color: #39aa39 !important; /* your dark green */
+}
+
+:root {
+    --md-typeset-a-color: #39aa39 !important; /* dark green for all links in content */
+  }
+  
+.md-typeset a:hover {
+color: #39aa39 !important; 
+}
