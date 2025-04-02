@@ -1,6 +1,8 @@
 site_name: AI and ML Notes
 theme:
   name: material
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.ico
   features:
     - navigation.instant
     - navigation.top
