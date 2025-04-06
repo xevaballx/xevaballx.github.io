@@ -1,13 +1,5 @@
 # Machine Learning
 
-This will include topics like:
-- Supervised learning
-- Unsupervised learning
-- Bias-variance tradeoff
+[![Watch on YouTube](https://img.youtube.com/vi/DQWI1kvmwRg/3.jpg)](https://www.youtube.com/watch?v=DQWI1kvmwRg)
 
-```python
-# Example: linear regression formula
-y = X @ w + b
-
-$y = mx + b$
 
