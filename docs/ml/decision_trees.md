@@ -41,6 +41,11 @@ That's the whole goal of decision trees: to use features to reduce label uncerta
 )\\
 
 HI
+\\( a^2 + b^2 = c^2 \\)
+
+$$
+\text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \cdot \text{Entropy}(S_v)
+$$
 
 Where:  
 - *S* is current set of training examples  
