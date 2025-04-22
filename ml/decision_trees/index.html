@@ -704,6 +704,28 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rl/game_theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -771,9 +793,9 @@ Decision Trees are representations of our <strong>features</strong> and we need 
 - Before the split on a feature, our data might be a mix of labels (50% Yes, 50% No ~ high uncertainty)<br />
 - After the split, if a feature separates the data such that one side is mostly Yes and the other mostly No, we’ve reduced our uncertainty about the label by asking about that feature.  </p>
 <p>That's the whole goal of decision trees: to use features to reduce label uncertainty step by step.</p>
-<p>$
+<p>\(
 \text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \cdot \text{Entropy}(S_v)
-$</p>
+)\</p>
 <p>Where:<br />
 - <em>S</em> is current set of training examples<br />
 - <em>A</em> is the feature we are evaluating (Weather)
