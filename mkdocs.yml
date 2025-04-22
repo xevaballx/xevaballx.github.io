@@ -52,6 +52,7 @@ nav:
       - Overview: robotics/index.md
   - Reinforcement Learning:
       - Overview: rl/index.md
+      - Game Theory: rl/game_theory.md
 
 
       

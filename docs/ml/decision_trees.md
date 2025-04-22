@@ -36,9 +36,11 @@ Example: A is Weather, values are {Sunny, Rainy, Overcast}. A becomes, "What is 
 
 That's the whole goal of decision trees: to use features to reduce label uncertainty step by step.
 
-$
+\\(
 \text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \cdot \text{Entropy}(S_v)
-$
+)\\
+
+HI
 
 Where:  
 - *S* is current set of training examples  
