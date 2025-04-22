@@ -42,6 +42,7 @@ nav:
       - Probability & Statistics: patterns/stats.md
   - Machine Learning:
       - Overview: ml/index.md
+      - Decision Trees: ml/decision_trees.md
   - NLP:
       - Overview: nlp/index.md
       - Distributional Semantics: nlp/distributional_semantics.md
