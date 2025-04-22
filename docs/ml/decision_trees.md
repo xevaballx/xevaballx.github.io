@@ -16,18 +16,18 @@ Naive Decision Tree algo (to build a tree)
 
 Problem here is that we have to follow *all* possible paths and think of all possible best next features until we can completely answer any question. So we aren't *learning* the tree, we are using a brute-force approach to build it.
 
-Given *n* boolean features, there are $2^n$ possible ways to arrange the features and $2^{2^n}$ ways to assign binary labels to those combinations. The hypothesis space ($2^{2^n}$) of the decision tree is very expressive because there are many possible functions a decision tree could represent: it has the *capacity* to represent a massive number of different functions from inputs to outputs.
+Given *n* boolean features, there are \\(2^n\\) possible ways to arrange the features and \\(2^{2^n}\\) ways to assign binary labels to those combinations. The hypothesis space (\\(2^{2^n}\\)) of the decision tree is very expressive because there are many possible functions a decision tree could represent: it has the *capacity* to represent a massive number of different functions from inputs to outputs.
 
 # ID3 Algo
 Loop:  
 1. $A$ = 'best' feature based on Information Gain.
 2. Assign $A$ as decision feature at this node (ask a question)
-3. For each $v \in A$, create a branch from current node
+3. For each \\(v \in A\\), create a branch from current node
 4. Group the training examples where feature $A = v$ into the corresponding branch.
 5. If all examples in a branch are of the same class (pure leaf), stop
 6.  Else, repeat the process recursively on that branch with remaining features.
 
-Example: A is Weather, values are {Sunny, Rainy, Overcast}. A becomes, "What is the Weather?" and $v \in A$ is one of the possible answers.
+Example: A is Weather, values are {Sunny, Rainy, Overcast}. A becomes, "What is the Weather?" and \\(v \in A\\) is one of the possible answers.
 
 **Information Gain** measures how much knowing the value of a feature helps us predict the label of a data point.  
 - Before the split on a feature, our data might be a mix of labels (50% Yes, 50% No ~ high uncertainty)  
@@ -38,14 +38,10 @@ That's the whole goal of decision trees: to use features to reduce label uncerta
 
 \\(
 \text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \cdot \text{Entropy}(S_v)
-)\\
+\\)
 
 HI
 \\( a^2 + b^2 = c^2 \\)
-
-$$
-\text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \cdot \text{Entropy}(S_v)
-$$
 
 Where:  
 - *S* is current set of training examples  
