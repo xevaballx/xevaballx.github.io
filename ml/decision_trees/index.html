@@ -782,7 +782,7 @@ Decision Trees are representations of our <strong>features</strong> and we need 
 <p>Given <em>n</em> boolean features, there are \(2^n\) possible ways to arrange the features and \(2^{2^n}\) ways to assign binary labels to those combinations. The hypothesis space (\(2^{2^n}\)) of the decision tree is very expressive because there are many possible functions a decision tree could represent: it has the <em>capacity</em> to represent a massive number of different functions from inputs to outputs.</p>
 <h1 id="id3-algo">ID3 Algo<a class="headerlink" href="#id3-algo" title="Permanent link">&para;</a></h1>
 <p>Loop:<br />
-1. <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> = 'best' feature based on Information Gain.<br />
+1. <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> = 'best' feature based on Best Information Gain.<br />
 2. Assign <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> as decision feature at this node (ask a question)<br />
 3. For each \(v \in A\), create a branch from current node<br />
 4. Group the training examples where feature <span class="arithmatex"><span class="MathJax_Preview">A = v</span><script type="math/tex">A = v</script></span> into the corresponding branch<br />
@@ -805,7 +805,12 @@ Decision Trees are representations of our <strong>features</strong> and we need 
 <p>Everything after the minus sign in the Information Gain formula represents the expected entropy after the split: the average uncertainty over each subset, weighted by the proportion of examples in that subset.</p>
 <p><strong>Entropy</strong> is the measure of randomness.</p>
 <p>Example: A coin has a 50% chance of producing either outcome, so it has 1 bit of entropy. Vs a coin with two heads, which as no entropy or zero bits.</p>
-<p>\( Entropy(S) = -\sum_{v \in V} p(v) \log_2 p(v) \)</p>
+<p>\( Entropy(S) = -\sum_{v \in V} p(v) \cdot \log_2 p(v) \)</p>
+<p>max Gain(G,A) = least randomness = 'best' feature</p>
+<p>\(
+\text{BestFeature} = \underset{A}{\arg\max} \ \text{Gain}(S, A) 
+\quad \text{(i.e., feature that reduces entropy the most)}
+\)</p>
 
 
 
