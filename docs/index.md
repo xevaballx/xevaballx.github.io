@@ -31,11 +31,15 @@ ___
 ---
 ## **Future Projects**
 
-When I finish grad school  
-- Junk Yard: Auto parts data base: Add all relevant auto parts in the world to database capturing key info like, photo, size, weight, id numbers  
-    1. How do we define relevant? We need to find most popular reused parts. Based on car model? Car date? Parts used across models?
-    2. What about rare parts? Should we always keep since the world is running out of them?
-- Junk Yard: Input live photo or video into CV component connected to database to access entry for that part  
+When I finish grad school
+
+### **Junk Yard**  
+
+**Auto parts database**: Add all relevant auto parts in the world to database capturing key info like, photo, size, weight, id numbers.  
+- How do we define relevant? We need to find most popular reused parts. Based on car model? Car date? Parts used across models?  
+- What about rare parts? Should we always keep since the world is running out of them?  
+
+**Computer Vision**: Input live photo or video into CV component connected to database to access entry for that part  
 - Stocks: Gather fresh data to plug into Stock Predictor  
 
 Note: Keep notes on all steps in research spike.
