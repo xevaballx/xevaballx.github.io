@@ -269,6 +269,28 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patterns/stats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability & Statistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -329,6 +351,28 @@
   
   <span class="md-ellipsis">
     Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml/decision_trees/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision Trees
     
   </span>
   
@@ -692,6 +736,36 @@
 
   <h1>Overview</h1>
 
+<p><strong>Q-Values</strong> represent expected cumulative reward for taking a specific action in a given state.</p>
+<p>Q-values represent the <strong>expected cumulative reward</strong> for taking a specific <strong>action</strong> in a given <strong>state</strong>, and then following the policy thereafter. So:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+Q(s, a) = \mathbb{E} \left[ \sum_{t=0}^{\infty} \gamma^t R_t \mid s_0 = s, a_0 = a \right]
+</div>
+<script type="math/tex; mode=display">
+Q(s, a) = \mathbb{E} \left[ \sum_{t=0}^{\infty} \gamma^t R_t \mid s_0 = s, a_0 = a \right]
+</script>
+</div>
+<p>Where:
+- <span class="arithmatex"><span class="MathJax_Preview"> s </span><script type="math/tex"> s </script></span> is the current state
+- <span class="arithmatex"><span class="MathJax_Preview"> a </span><script type="math/tex"> a </script></span> is the action taken
+- <span class="arithmatex"><span class="MathJax_Preview"> \gamma </span><script type="math/tex"> \gamma </script></span> is the discount factor
+- <span class="arithmatex"><span class="MathJax_Preview"> R_t </span><script type="math/tex"> R_t </script></span> are the rewards</p>
+<p>So it’s about both <strong>state and action</strong> (not just the state).</p>
+<p><strong>epsilon decay ration</strong>
+Even if we think a certain action has the highest Q-Value(based on earlier exploration) in a state, we still randomly try other actions with probability epsilon. This helps us discover better actions we might have missed early on.</p>
+<p><strong>alpha: learning rate</strong>
+Controls how much we update the Q-value based on new information. Higher values is bigger updates to Q-values.</p>
+<p>Epsilon controls which actions we try (explore).</p>
+<p>Alpha controls how strongly each experience influences learning. </p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+Q(s, a) \leftarrow Q(s, a) + \alpha \cdot \big[ \text{target} - Q(s, a) \big]
+</div>
+<script type="math/tex; mode=display">
+Q(s, a) \leftarrow Q(s, a) + \alpha \cdot \big[ \text{target} - Q(s, a) \big]
+</script>
+</div>
 
 
 
@@ -699,6 +773,8 @@
 
 
 
+  
+  
 
 
 
