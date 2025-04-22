@@ -20,12 +20,12 @@ Given *n* boolean features, there are \\(2^n\\) possible ways to arrange the fea
 
 # ID3 Algo
 Loop:  
-1. $A$ = 'best' feature based on Information Gain.
-2. Assign $A$ as decision feature at this node (ask a question)
-3. For each \\(v \in A\\), create a branch from current node
-4. Group the training examples where feature $A = v$ into the corresponding branch.
-5. If all examples in a branch are of the same class (pure leaf), stop
-6.  Else, repeat the process recursively on that branch with remaining features.
+1. $A$ = 'best' feature based on Information Gain.  
+2. Assign $A$ as decision feature at this node (ask a question)  
+3. For each \\(v \in A\\), create a branch from current node  
+4. Group the training examples where feature $A = v$ into the corresponding branch  
+5. If all examples in a branch are of the same class (pure leaf), stop  
+6.  Else, repeat the process recursively on that branch with remaining features  
 
 Example: A is Weather, values are {Sunny, Rainy, Overcast}. A becomes, "What is the Weather?" and \\(v \in A\\) is one of the possible answers.
 
@@ -40,15 +40,19 @@ That's the whole goal of decision trees: to use features to reduce label uncerta
 \text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \cdot \text{Entropy}(S_v)
 \\)
 
-HI
-\\( a^2 + b^2 = c^2 \\)
-
 Where:  
 - *S* is current set of training examples  
 - *A* is the feature we are evaluating (Weather)
 - *Values(A)* are the possible values of feature *A* ({Sunny, Rainy, Overcast})  
-- $S_v$ is subset of *S* where feature *A = v*  
+- \\(S_v\\) is subset of *S* where feature *A = v*  
 - *Entropy(S)* is the entropy of the full set
 
-Everything after the minus sign in the Information Gain formula represents the expected entropy after the split — that is, the average uncertainty over each subset, weighted by the proportion of examples in that subset.
-<span style="color:red">This text is red</span>
+Everything after the minus sign in the Information Gain formula represents the expected entropy after the split: the average uncertainty over each subset, weighted by the proportion of examples in that subset.
+
+**Entropy** is the measure of randomness.
+
+Example: A coin has a 50% chance of producing either outcome, so it has 1 bit of entropy. Vs a coin with two heads, which as no entropy or zero bits.
+
+\\( Entropy(S) = -\sum_{v \in V} p(v) \log_2 p(v) \\)
+
+
