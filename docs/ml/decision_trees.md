@@ -20,7 +20,7 @@ Given *n* boolean features, there are \\(2^n\\) possible ways to arrange the fea
 
 # ID3 Algo
 Loop:  
-1. $A$ = 'best' feature based on Information Gain.  
+1. $A$ = 'best' feature based on Best Information Gain.  
 2. Assign $A$ as decision feature at this node (ask a question)  
 3. For each \\(v \in A\\), create a branch from current node  
 4. Group the training examples where feature $A = v$ into the corresponding branch  
@@ -53,6 +53,12 @@ Everything after the minus sign in the Information Gain formula represents the e
 
 Example: A coin has a 50% chance of producing either outcome, so it has 1 bit of entropy. Vs a coin with two heads, which as no entropy or zero bits.
 
-\\( Entropy(S) = -\sum_{v \in V} p(v) \log_2 p(v) \\)
+\\( Entropy(S) = -\sum_{v \in V} p(v) \cdot \log_2 p(v) \\)
 
+max Gain(G,A) = least randomness = 'best' feature
+
+\\(
+\text{BestFeature} = \underset{A}{\arg\max} \ \text{Gain}(S, A) 
+\quad \text{(i.e., feature that reduces entropy the most)}
+\\)
 
