@@ -782,12 +782,12 @@ Decision Trees are representations of our <strong>features</strong> and we need 
 <p>Given <em>n</em> boolean features, there are \(2^n\) possible ways to arrange the features and \(2^{2^n}\) ways to assign binary labels to those combinations. The hypothesis space (\(2^{2^n}\)) of the decision tree is very expressive because there are many possible functions a decision tree could represent: it has the <em>capacity</em> to represent a massive number of different functions from inputs to outputs.</p>
 <h1 id="id3-algo">ID3 Algo<a class="headerlink" href="#id3-algo" title="Permanent link">&para;</a></h1>
 <p>Loop:<br />
-1. <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> = 'best' feature based on Information Gain.
-2. Assign <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> as decision feature at this node (ask a question)
-3. For each \(v \in A\), create a branch from current node
-4. Group the training examples where feature <span class="arithmatex"><span class="MathJax_Preview">A = v</span><script type="math/tex">A = v</script></span> into the corresponding branch.
-5. If all examples in a branch are of the same class (pure leaf), stop
-6.  Else, repeat the process recursively on that branch with remaining features.</p>
+1. <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> = 'best' feature based on Information Gain.<br />
+2. Assign <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> as decision feature at this node (ask a question)<br />
+3. For each \(v \in A\), create a branch from current node<br />
+4. Group the training examples where feature <span class="arithmatex"><span class="MathJax_Preview">A = v</span><script type="math/tex">A = v</script></span> into the corresponding branch<br />
+5. If all examples in a branch are of the same class (pure leaf), stop<br />
+6.  Else, repeat the process recursively on that branch with remaining features  </p>
 <p>Example: A is Weather, values are {Sunny, Rainy, Overcast}. A becomes, "What is the Weather?" and \(v \in A\) is one of the possible answers.</p>
 <p><strong>Information Gain</strong> measures how much knowing the value of a feature helps us predict the label of a data point.<br />
 - Before the split on a feature, our data might be a mix of labels (50% Yes, 50% No ~ high uncertainty)<br />
@@ -796,16 +796,16 @@ Decision Trees are representations of our <strong>features</strong> and we need 
 <p>\(
 \text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \cdot \text{Entropy}(S_v)
 \)</p>
-<p>HI
-\( a^2 + b^2 = c^2 \)</p>
 <p>Where:<br />
 - <em>S</em> is current set of training examples<br />
 - <em>A</em> is the feature we are evaluating (Weather)
 - <em>Values(A)</em> are the possible values of feature <em>A</em> ({Sunny, Rainy, Overcast})<br />
-- <span class="arithmatex"><span class="MathJax_Preview">S_v</span><script type="math/tex">S_v</script></span> is subset of <em>S</em> where feature <em>A = v</em><br />
+- \(S_v\) is subset of <em>S</em> where feature <em>A = v</em><br />
 - <em>Entropy(S)</em> is the entropy of the full set</p>
-<p>Everything after the minus sign in the Information Gain formula represents the expected entropy after the split — that is, the average uncertainty over each subset, weighted by the proportion of examples in that subset.
-<span style="color:red">This text is red</span></p>
+<p>Everything after the minus sign in the Information Gain formula represents the expected entropy after the split: the average uncertainty over each subset, weighted by the proportion of examples in that subset.</p>
+<p><strong>Entropy</strong> is the measure of randomness.</p>
+<p>Example: A coin has a 50% chance of producing either outcome, so it has 1 bit of entropy. Vs a coin with two heads, which as no entropy or zero bits.</p>
+<p>\( Entropy(S) = -\sum_{v \in V} p(v) \log_2 p(v) \)</p>
 
 
 
