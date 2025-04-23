@@ -873,7 +873,7 @@ Given \( h \in H \), this is the bias toward which hypotheses within <em>H</em> 
 Hold out a validation set. Each time the tree expands, evaluate performance on the validation data. If adding a split doesn’t reduce validation error meaningfully, stop expanding. This prevents overfitting and infinite splitting on noisy examples.</p>
 <h1 id="regression">Regression<a class="headerlink" href="#regression" title="Permanent link">&para;</a></h1>
 <p>While classification predicts discrete labels (<em>yes</em> or <em>no</em>), <strong>regression</strong> predicts continuous numerical values (temperature, price, or age). While classification trees aim to minimize impurity (like Gini or entropy), regression trees aim to minimize a continuous loss function — typically Mean Squared Error (MSE) — to better predict numeric outcomes. While classification trees typically use information gain to decide splits, regression trees minimize a continuous loss function such as Mean Squared Error (MSE).</p>
-<p>(\
+<p>\(
 \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2
 \)</p>
 <p>MSE predicts the <strong>average</strong> value of the target variable in each leaf and chooses splits that minimize the variance of the output.</p>
