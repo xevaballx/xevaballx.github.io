@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#decision-trees-overview" class="md-skip">
+        <a href="#decision-trees" class="md-skip">
           Skip to content
         </a>
       
@@ -430,6 +430,18 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Decision Trees
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -440,6 +452,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#id3-algo" class="md-nav__link">
+    <span class="md-ellipsis">
+      ID3 Algo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inductive-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inductive Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopping-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stopping Point
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regression
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lazy-vs-eager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lazy vs Eager
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -797,6 +882,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#id3-algo" class="md-nav__link">
+    <span class="md-ellipsis">
+      ID3 Algo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inductive-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inductive Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopping-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stopping Point
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regression
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lazy-vs-eager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lazy vs Eager
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -811,7 +958,7 @@
 
 
 
-<h1 id="decision-trees-overview">Decision Trees Overview<a class="headerlink" href="#decision-trees-overview" title="Permanent link">&para;</a></h1>
+<h1 id="decision-trees">Decision Trees<a class="headerlink" href="#decision-trees" title="Permanent link">&para;</a></h1>
 <p>Decision Trees are a form of classification learning.
 Decision Trees are representations of our <strong>features</strong> and we need to determine representation before deciding on algo. First we identify our problem (root question). Then we identify attributes/features and ask questions about those. These are the <strong>decision nodes</strong>. Examples: Is it raining? What type of restaurant is it? </p>
 <p><strong>Edges</strong> represent the <strong>value</strong> of each decision node. Examples: Yes and No. Pizza, Thai, Mexican. </p>
@@ -824,7 +971,7 @@ Decision Trees are representations of our <strong>features</strong> and we need 
 4. If not a leaf node, go back to step 1 with the remaining features and data subset.</p>
 <p>Problem here is that we have to follow <em>all</em> possible paths and think of all possible best next features until we can completely answer any question. So we aren't <em>learning</em> the tree, we are using a brute-force approach to build it.</p>
 <p>Given <em>n</em> boolean features, there are \(2^n\) possible ways to arrange the features and \(2^{2^n}\) ways to assign binary labels to those combinations. The hypothesis space (\(2^{2^n}\)) of the decision tree is very expressive because there are many possible functions a decision tree could represent: it has the <em>capacity</em> to represent a massive number of different functions from inputs to outputs.</p>
-<h1 id="id3-algo">ID3 Algo<a class="headerlink" href="#id3-algo" title="Permanent link">&para;</a></h1>
+<h2 id="id3-algo">ID3 Algo<a class="headerlink" href="#id3-algo" title="Permanent link">&para;</a></h2>
 <p>Loop:<br />
 1. <em>A</em> = 'best' feature based on Best Information Gain.<br />
 2. Assign <em>A</em> as decision feature at this node (ask a question)<br />
@@ -854,7 +1001,7 @@ Decision Trees are representations of our <strong>features</strong> and we need 
 \text{BestFeature} = \underset{A}{\arg\max} \ \text{Gain}(S, A) 
 \quad \text{(i.e., feature that reduces entropy the most)}
 \)</p>
-<h1 id="inductive-bias">Inductive Bias<a class="headerlink" href="#inductive-bias" title="Permanent link">&para;</a></h1>
+<h2 id="inductive-bias">Inductive Bias<a class="headerlink" href="#inductive-bias" title="Permanent link">&para;</a></h2>
 <p>There are two kinds of bias we need to consider when designing any classifier:</p>
 <p><strong>Restriction Bias</strong>: H<br />
 This bias arises automatically from our choice of hypothesis set, H. It limits the functions we are capable of learning. When using decision trees, <em>H</em> includes only functions that can be represented by decision trees: this is our restriction bias.</p>
@@ -864,20 +1011,20 @@ Given \( h \in H \), this is the bias toward which hypotheses within <em>H</em> 
 - Good <strong>splits</strong> near the top: ID3 greedily chooses features with the highest information gain from the top down. 
 - <strong>Correct</strong> over incorrect: ID3 expands nodes until all training examples are correctly classified.
 - <strong>Shallow trees (implicitly)</strong>: Because it prioritizes informative splits early, ID3 tends to prefer trees with shallower depth, even though this is not explicitly enforced.</p>
-<h1 id="continuous-features">Continuous Features<a class="headerlink" href="#continuous-features" title="Permanent link">&para;</a></h1>
-<p>ID3 attempts to split on <em>every possible value</em> for (\v \in A\). This is infeasible for many features especially continuous ones. The solution is to discretize or bin values. Example: If A = age, we could create a value like v = 20 &lt; Age &lt; 30.</p>
-<h1 id="stopping-point">Stopping Point<a class="headerlink" href="#stopping-point" title="Permanent link">&para;</a></h1>
+<h2 id="continuous-features">Continuous Features<a class="headerlink" href="#continuous-features" title="Permanent link">&para;</a></h2>
+<p>ID3 attempts to split on <em>every possible value</em> for \(v \in A\). This is infeasible for many features especially continuous ones. The solution is to discretize or bin values. Example: If A = age, we could create a value like v = 20 &lt; Age &lt; 30.</p>
+<h2 id="stopping-point">Stopping Point<a class="headerlink" href="#stopping-point" title="Permanent link">&para;</a></h2>
 <p>ID3 stops expanding the tree when all training examples are perfectly classified: when every leaf is pure. This may lead to very deep trees and overfitting, especially if the data contains noise or exceptions.</p>
 <p>Example: Suppose Alice plays tennis when it’s raining and windy, but Tony does not. If these cases contradict, the naive ID3 algorithm would keep splitting forever in an attempt to fit both.</p>
 <p>Solution: <strong>Validation-based early stopping</strong><br />
 Hold out a validation set. Each time the tree expands, evaluate performance on the validation data. If adding a split doesn’t reduce validation error meaningfully, stop expanding. This prevents overfitting and infinite splitting on noisy examples.</p>
-<h1 id="regression">Regression<a class="headerlink" href="#regression" title="Permanent link">&para;</a></h1>
+<h2 id="regression">Regression<a class="headerlink" href="#regression" title="Permanent link">&para;</a></h2>
 <p>While classification predicts discrete labels (<em>yes</em> or <em>no</em>), <strong>regression</strong> predicts continuous numerical values (temperature, price, or age). While classification trees aim to minimize impurity (like Gini or entropy), regression trees aim to minimize a continuous loss function — typically Mean Squared Error (MSE) — to better predict numeric outcomes. While classification trees typically use information gain to decide splits, regression trees minimize a continuous loss function such as Mean Squared Error (MSE).</p>
 <p>\(
 \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2
 \)</p>
 <p>MSE predicts the <strong>average</strong> value of the target variable in each leaf and chooses splits that minimize the variance of the output.</p>
-<h1 id="lazy-vs-eager">Lazy vs Eager<a class="headerlink" href="#lazy-vs-eager" title="Permanent link">&para;</a></h1>
+<h2 id="lazy-vs-eager">Lazy vs Eager<a class="headerlink" href="#lazy-vs-eager" title="Permanent link">&para;</a></h2>
 <p>ID3 is an <strong>eager</strong> algorithm that builds a full decision tree during training, <em>before</em> it sees test data. While a <strong>lazy</strong> algorithm delays computation until a predication is needed.</p>
 <p>A lazy version of ID3 would store the training data and construct just enough of the decision tree on-demand at prediction time to classify the input. This avoids constructing the entire tree ahead of time.</p>
 
