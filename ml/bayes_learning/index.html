@@ -901,7 +901,7 @@ D</p>
 <p><strong>Prior</strong> \(P(h)\): Our belief about the hypothesis before seeing the data.</p>
 <p><strong>Evidence</strong> \(P( \mid D)\): Prior on the data. It represents the overall probability of observing the data under all possible hypotheses. It is used to normalize the posterior probabilities, ensuring they sum to 1. Often, it doesn't matter when comparing hypotheses because it is constant with respect to h, and thus cancels out in \(\arg\max_h P(h \mid D)\).</p>
 <p>Bayes’ Rule allows us to invert a conditional probability, switching from \(P(h \mid D)\) to \(P(D \mid h)\), so that we can reason about a hypothesis even when \(P(h \mid D)\) is hard to compute directly. This works because of the definition of conditional probability and the symmetry of joint probability:</p>
-<p>\P(D,h) = (P(D \mid h) P(D) = P(h \mid D) P(D) \)</p>
+<p>\( P(D,h) = (P(D \mid h) P(D) = P(h \mid D) P(D) \)</p>
 <p>This lets us rewrite problems in terms of what is easier to estimate or known, by simply moving the denominator to isolate the posterior.</p>
 <h2 id="priors-matter">Priors Matter<a class="headerlink" href="#priors-matter" title="Permanent link">&para;</a></h2>
 <p>Consider a person diagnosed with an extremely rare disease that occurs in 8 of 1000 people. The test used to diagnose them returns correct positives 97% of the time, and correct negatives 98% of the time. Even though they were diagnosed with the disease, do they actually have it?</p>
@@ -926,44 +926,22 @@ D</p>
 </ul>
 <hr />
 <p>We want to compute the <strong>posterior probability</strong> that a person has the disease given a positive test:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<p>\(
 P(\text{Disease} \mid \text{Positive}) = \frac{P(\text{Positive} \mid \text{Disease}) \cdot P(\text{Disease})}{P(\text{Positive})}
-</div>
-<script type="math/tex; mode=display">
-P(\text{Disease} \mid \text{Positive}) = \frac{P(\text{Positive} \mid \text{Disease}) \cdot P(\text{Disease})}{P(\text{Positive})}
-</script>
-</div>
+\)</p>
 <p>The denominator is the <strong>total probability of testing positive</strong>, which includes both true positives and false positives:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<p>\(
 P(\text{Positive}) = P(\text{Positive} \mid \text{Disease}) \cdot P(\text{Disease}) + P(\text{Positive} \mid \text{No Disease}) \cdot P(\text{No Disease})
-</div>
-<script type="math/tex; mode=display">
-P(\text{Positive}) = P(\text{Positive} \mid \text{Disease}) \cdot P(\text{Disease}) + P(\text{Positive} \mid \text{No Disease}) \cdot P(\text{No Disease})
-</script>
-</div>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+\)</p>
+<p>\(
 = (0.97)(0.008) + (0.02)(0.992)
 = 0.00776 + 0.01984
 = 0.0276
-</div>
-<script type="math/tex; mode=display">
-= (0.97)(0.008) + (0.02)(0.992)
-= 0.00776 + 0.01984
-= 0.0276
-</script>
-</div>
+\)</p>
 <p>Now plug this back into the numerator:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<p>\(
 P(\text{Disease} \mid \text{Positive}) = \frac{0.97 \cdot 0.008}{0.0276} \approx \frac{0.00776}{0.0276} \approx 0.2812
-</div>
-<script type="math/tex; mode=display">
-P(\text{Disease} \mid \text{Positive}) = \frac{0.97 \cdot 0.008}{0.0276} \approx \frac{0.00776}{0.0276} \approx 0.2812
-</script>
-</div>
+\)</p>
 <p><strong>Conclusion:</strong><br />
 \( P(\text{Disease} \mid \text{Positive}) \approx 28\% \)<br />
 So even though the test returned a positive result, there's only about a 28% chance the person actually has the disease — mostly because the disease is so rare.</p>
