@@ -92,7 +92,7 @@ Hold out a validation set. Each time the tree expands, evaluate performance on t
 
 While classification predicts discrete labels (*yes* or *no*), **regression** predicts continuous numerical values (temperature, price, or age). While classification trees aim to minimize impurity (like Gini or entropy), regression trees aim to minimize a continuous loss function — typically Mean Squared Error (MSE) — to better predict numeric outcomes. While classification trees typically use information gain to decide splits, regression trees minimize a continuous loss function such as Mean Squared Error (MSE).
 
-(\\
+\\(
 \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2
 \\)
 
