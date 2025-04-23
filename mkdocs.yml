@@ -39,9 +39,11 @@ nav:
   - Home: index.md
   - Patterns:
       - Overview: patterns/index.md
+      - Glossary: patterns/glossary.md
       - Probability & Statistics: patterns/stats.md
   - Machine Learning:
       - Overview: ml/index.md
+      - Bayesian Learning: ml/bayes_learning.md
       - Decision Trees: ml/decision_trees.md
   - NLP:
       - Overview: nlp/index.md

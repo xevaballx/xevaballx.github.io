@@ -20,10 +20,10 @@ Given *n* boolean features, there are \\(2^n\\) possible ways to arrange the fea
 
 # ID3 Algo
 Loop:  
-1. $A$ = 'best' feature based on Best Information Gain.  
-2. Assign $A$ as decision feature at this node (ask a question)  
+1. *A* = 'best' feature based on Best Information Gain.  
+2. Assign *A* as decision feature at this node (ask a question)  
 3. For each \\(v \in A\\), create a branch from current node  
-4. Group the training examples where feature $A = v$ into the corresponding branch  
+4. Group the training examples where feature *A = v* into the corresponding branch  
 5. If all examples in a branch are of the same class (pure leaf), stop  
 6.  Else, repeat the process recursively on that branch with remaining features  
 
@@ -55,10 +55,51 @@ Example: A coin has a 50% chance of producing either outcome, so it has 1 bit of
 
 \\( Entropy(S) = -\sum_{v \in V} p(v) \cdot \log_2 p(v) \\)
 
-max Gain(G,A) = least randomness = 'best' feature
-
 \\(
 \text{BestFeature} = \underset{A}{\arg\max} \ \text{Gain}(S, A) 
 \quad \text{(i.e., feature that reduces entropy the most)}
 \\)
 
+# Inductive Bias
+
+There are two kinds of bias we need to consider when designing any classifier:
+
+**Restriction Bias**: H  
+This bias arises automatically from our choice of hypothesis set, H. It limits the functions we are capable of learning. When using decision trees, *H* includes only functions that can be represented by decision trees: this is our restriction bias.
+
+**Preference Bias** \\( h \in H \\)  
+Given \\( h \in H \\), this is the bias toward which hypotheses within *H* we prefer. It influences how we search within *H*, and determines which solutions we favor when multiple hypotheses fit the data.
+
+So which decision would ID3 prefer:  
+- Good **splits** near the top: ID3 greedily chooses features with the highest information gain from the top down. 
+- **Correct** over incorrect: ID3 expands nodes until all training examples are correctly classified.
+- **Shallow trees (implicitly)**: Because it prioritizes informative splits early, ID3 tends to prefer trees with shallower depth, even though this is not explicitly enforced.
+
+# Continuous Features  
+
+ID3 attempts to split on *every possible value* for (\\v \in A\\). This is infeasible for many features especially continuous ones. The solution is to discretize or bin values. Example: If A = age, we could create a value like v = 20 < Age < 30.
+
+# Stopping Point
+
+ID3 stops expanding the tree when all training examples are perfectly classified: when every leaf is pure. This may lead to very deep trees and overfitting, especially if the data contains noise or exceptions.
+
+Example: Suppose Alice plays tennis when it’s raining and windy, but Tony does not. If these cases contradict, the naive ID3 algorithm would keep splitting forever in an attempt to fit both.
+
+Solution: **Validation-based early stopping**  
+Hold out a validation set. Each time the tree expands, evaluate performance on the validation data. If adding a split doesn’t reduce validation error meaningfully, stop expanding. This prevents overfitting and infinite splitting on noisy examples.
+
+# Regression
+
+While classification predicts discrete labels (*yes* or *no*), **regression** predicts continuous numerical values (temperature, price, or age). While classification trees aim to minimize impurity (like Gini or entropy), regression trees aim to minimize a continuous loss function — typically Mean Squared Error (MSE) — to better predict numeric outcomes. While classification trees typically use information gain to decide splits, regression trees minimize a continuous loss function such as Mean Squared Error (MSE).
+
+(\\
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2
+\\)
+
+MSE predicts the **average** value of the target variable in each leaf and chooses splits that minimize the variance of the output.
+
+# Lazy vs Eager
+
+ID3 is an **eager** algorithm that builds a full decision tree during training, *before* it sees test data. While a **lazy** algorithm delays computation until a predication is needed.
+
+A lazy version of ID3 would store the training data and construct just enough of the decision tree on-demand at prediction time to classify the input. This avoids constructing the entire tree ahead of time.
