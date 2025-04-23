@@ -25,7 +25,7 @@ D
 Bayes’ Rule allows us to invert a conditional probability, switching from \\(P(h \mid D)\\) to \\(P(D \mid h)\\), so that we can reason about a hypothesis even when \\(P(h \mid D)\\) is hard to compute directly. This works because of the definition of conditional probability and the symmetry of joint probability:
 
 
-\\P(D,h) = (P(D \mid h) P(D) = P(h \mid D) P(D) \\)
+\\( P(D,h) = (P(D \mid h) P(D) = P(h \mid D) P(D) \\)
 
 This lets us rewrite problems in terms of what is easier to estimate or known, by simply moving the denominator to isolate the posterior.
 
@@ -52,27 +52,27 @@ Consider a person diagnosed with an extremely rare disease that occurs in 8 of 1
 
 We want to compute the **posterior probability** that a person has the disease given a positive test:
 
-\[
+\\(
 P(\text{Disease} \mid \text{Positive}) = \frac{P(\text{Positive} \mid \text{Disease}) \cdot P(\text{Disease})}{P(\text{Positive})}
-\]
+\\)
 
 The denominator is the **total probability of testing positive**, which includes both true positives and false positives:
 
-\[
+\\(
 P(\text{Positive}) = P(\text{Positive} \mid \text{Disease}) \cdot P(\text{Disease}) + P(\text{Positive} \mid \text{No Disease}) \cdot P(\text{No Disease})
-\]
+\\)
 
-\[
+\\(
 = (0.97)(0.008) + (0.02)(0.992)
 = 0.00776 + 0.01984
 = 0.0276
-\]
+\\)
 
 Now plug this back into the numerator:
 
-\[
+\\(
 P(\text{Disease} \mid \text{Positive}) = \frac{0.97 \cdot 0.008}{0.0276} \approx \frac{0.00776}{0.0276} \approx 0.2812
-\]
+\\)
 
 
 **Conclusion:**  
