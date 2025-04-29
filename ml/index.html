@@ -960,7 +960,7 @@ Target concept should have training error of zero.<br />
 <li>Hypothesis Space: H : The set of mappings that the learning is going to consider.  </li>
 <li>Size of the hypothesis space: |H|: n  </li>
 <li>Distribution over inputs: D </li>
-<li><strong>Version Space</strong>: VS(S) = {h s.t. h \(\in H consistent wrt S\) : hypothesis consistent with examples : <strong>the function we learned labels the data correctly</strong>.   </li>
+<li><strong>Version Space</strong>: VS(S) = { <em>h</em> s.t. h \(\in H \text{consistent wrt} S\) : hypothesis consistent with examples : <strong>the function we learned labels the data correctly</strong>.   </li>
 <li>Error Goal: \(   0 \leq \epsilon \leq 1/2\) : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  <em>Approximately</em>  </li>
 <li>Certainty Goal: \(   0 \leq \delta 1/2\) : We might be unlucky and not meet our error goal, \(   \delta\)allows us to set a certainty goal, which means with \(   P(1 - \delta)\), the algorithm has to work. To work, here, means to produce a True Error \(   \leq to \epsilon\). <em>Probably</em></li>
 </ul>
@@ -976,8 +976,9 @@ m \geq \frac{1}{\epsilon} \left( \ln |H| + \ln \frac{1}{\delta} \right),
 \)</p>
 <p>And for infinite hypothesis class:</p>
 <p>\(
-m \geq \frac{1}{\epsilon} \left( (\dot VC |H|) /dot /log_2 + 4\log \frac{2}{\delta} \right),
+m \geq \frac{1}{\epsilon} \left( (8 \cdot VC |H|) \cdot \log_2 + 4\log_2 \frac{2}{\delta} \right),
 \)</p>
+<p>As VS|H| gets bigger we need more data.</p>
 <p><em>So...</em>   <br />
 <strong>H is PAC-Learnable \(iff\) VC dimension is finite.</strong></p>
 <h2 id="vc-dimensions">VC Dimensions<a class="headerlink" href="#vc-dimensions" title="Permanent link">&para;</a></h2>
