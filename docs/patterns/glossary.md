@@ -15,3 +15,4 @@ Like the following, where $ n $ = input size:
 
 Polynomial time is considered **efficient**.  
 It contrasts with **exponential time** algorithms, like $O(2^n)$, which become intractable as $n$ grows.
+

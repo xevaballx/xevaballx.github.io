@@ -45,6 +45,7 @@ nav:
       - Overview: ml/index.md
       - Bayesian Learning: ml/bayes_learning.md
       - Decision Trees: ml/decision_trees.md
+      - Neural Nets: ml/nn.md
   - NLP:
       - Overview: nlp/index.md
       - Distributional Semantics: nlp/distributional_semantics.md

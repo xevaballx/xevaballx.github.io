@@ -42,4 +42,8 @@ When I finish grad school
 **Computer Vision**: Input live photo or video into CV component connected to database to access entry for that part  
 - Stocks: Gather fresh data to plug into Stock Predictor  
 
+### **Test Bed**
+
+Set up test env and dataset(s) so I can easily test improvements (of models, loss functions, optimizers, privacy, data transforms etc.). Create bench marking in a variety of metrics. Save model params and optimizer. Saving optimizer allows us to continue training where we left off.
+
 Note: Keep notes on all steps in research spike.
