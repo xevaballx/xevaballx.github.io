@@ -386,6 +386,18 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -396,6 +408,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#computation-learning-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation Learning Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Computation Learning Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pac-learning-probably-approximately-correct-error-of-hypothesis-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAC Learning : Probably Approximately Correct : Error of hypothesis h
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vc-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      VC Dimensions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -436,6 +500,28 @@
   
   <span class="md-ellipsis">
     Decision Trees
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Nets
     
   </span>
   
@@ -797,6 +883,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#computation-learning-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation Learning Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Computation Learning Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pac-learning-probably-approximately-correct-error-of-hypothesis-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAC Learning : Probably Approximately Correct : Error of hypothesis h
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vc-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      VC Dimensions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -813,6 +940,45 @@
 
 <h1 id="machine-learning">Machine Learning<a class="headerlink" href="#machine-learning" title="Permanent link">&para;</a></h1>
 <p><a href="https://www.youtube.com/watch?v=DQWI1kvmwRg"><img alt="Watch on YouTube" src="https://img.youtube.com/vi/DQWI1kvmwRg/3.jpg" /></a></p>
+<p>An inductive learner uses examples to find the best hypothesis h* from some class H. H is the set of possible answers to the problem. Think of hypothesis h as candidate answers.</p>
+<h2 id="computation-learning-theory">Computation Learning Theory<a class="headerlink" href="#computation-learning-theory" title="Permanent link">&para;</a></h2>
+<p>log base 2, is like keep dividing by 2</p>
+<h3 id="pac-learning-probably-approximately-correct-error-of-hypothesis-h">PAC Learning : Probably Approximately Correct : Error of hypothesis h<a class="headerlink" href="#pac-learning-probably-approximately-correct-error-of-hypothesis-h" title="Permanent link">&para;</a></h3>
+<p>Training Error: Fraction of training examples misclassified by h.<br />
+Target concept should have training error of zero.</p>
+<p>True Error: Fraction of examples that <em>would be</em> misclassified on sample drawn from D in, essentially, the infinite limit. The probability that a sample drawn from D would be misclassified by some hypothesis h. 
+(\  error_d(h) = P(c(x) \neq h(x)) in x~D distribution)\</p>
+<p>So we are not penalized for examples that we never see. And examples that we see rarely, we only get a time bit of contribution to the overall error.</p>
+<p>True Hypothesis (\  c \in  H )\ 
+Concept: c aka label
+Concept Class: The class from which the concept that we are trying to learn comes from. <br />
+Hypothesis Space: H : The set of mappings that the learning is going to consider.<br />
+Size of the hypothesis space: |H|: n<br />
+Distribution over inputs: D<br />
+Error Goal: (\  0 \leq \epsilon \leq 1/2)\ : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  <em>Approximately</em><br />
+Certainty Goal: (\  0 \leq \delta 1/2)\ : We might be unlucky and not meet our error goal, (\  \delta)\allows us to set a certainty goal, which means with (\  P(1 - \delta))\, the algorithm has to work. To work, here, means to produce a True Error (\  \leq to epsilon)\. <em>Probably</em></p>
+<p>C is PAC-Learnable by L using H iff learning L will, with high probability at least (\  1-/delta))\, output a hypothesis h \in H s.t. it is very accurate (\  (error_D(h) \leq \epsilon))\; and in time and samples it is bounded by polynomial in (\  1/\epsilon, 1/\delta,)\ and n. </p>
+<p>If we want perfect error and perfect certainty than the denominators go to infinity as we look at all the data.</p>
+<p>Meaning something is PAC-Learnable if we can learn to get a low error, with high confidence, in time that is sort of polynomial in all the parameters.</p>
+<h2 id="vc-dimensions">VC Dimensions<a class="headerlink" href="#vc-dimensions" title="Permanent link">&para;</a></h2>
+<p>VC Dimensions help us determine how much data we need to learn effectively even if the hypothesis class is infinite. It expresses how expressive or powerful a model class is in terms of what patterns it can learn: this is a measure of complexity or capacity. </p>
+<p>Most of the algorithms we use have an infinite hypothesis space:<br />
+- linear separators: there are infinite number of lines to choose from since m x and b are reals<br />
+- NN: each weights has an infinite amount of numbers it can be since weights are reals<br />
+- decision trees with continuous inputs: infinite number of questions we can ask at decision nodes<br />
+- ...</p>
+<p>How all of our ML algorithms work is like this: keep track of <em>all</em> hypotheses and keep this version space. Once we see enough examples randomly drawn we know we've epsilon-exhausted the version space. So any hypothesis that is left is going to be ok.</p>
+<p>But we can't keep track of infinite hypotheses.</p>
+<p>So we will find a way to keep track of only the hypothesis that can affect the outcome differently. </p>
+<p>Example:
+X: {1,2,3,4,5,6,7,8,9,10}<br />
+H: {h(x) = x (\ \leq \theta )\}</p>
+<p>|H| = (\ \infinite )\</p>
+<p>But only (\ \theta )\ above 10 is important</p>
+<p>VC Dimension it the maximum number of points that can be shattered by the hypotheses in that space.</p>
+<p>Shatter: For every possible labeling (0/1 classification) of the points, there exists a hypothesis (a classifier from your class) that perfectly separates the points according to that labeling.</p>
+<p>VC dimension depends on the hypothesis class, not strictly the number of input features. Example: Both a circle and a sphere have 2 VC dimensions</p>
+<p>High VC dimension mean the model can shatter more configurations, increasing the risk of over fit, likewise lower VC dimensions may to under fitting and poor accuracy if they are too low.</p>
 
 
 

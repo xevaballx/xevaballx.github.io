@@ -9,8 +9,6 @@
       
       
       
-        <link rel="prev" href="../">
-      
       
       
       <link rel="icon" href="../../assets/images/favicon.ico">
@@ -18,7 +16,7 @@
     
     
       
-        <title>Game Theory - AI and ML Notes</title>
+        <title>Machine Reading - AI and ML Notes</title>
       
     
     
@@ -69,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#machine-reading" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -100,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Game Theory
+              Machine Reading
             
           </span>
         </div>
@@ -504,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nlp/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -526,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nlp/distributional_semantics/" class="md-nav__link">
+      <a href="../distributional_semantics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -692,8 +695,6 @@
       
   
   
-    
-  
   
   
     
@@ -705,11 +706,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
@@ -724,7 +725,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Reinforcement Learning
@@ -738,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../rl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -757,17 +758,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../rl/game_theory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -777,7 +771,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -807,6 +800,25 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#distant-supervision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distant Supervision
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -822,19 +834,217 @@
 
 
 
-  <h1>Game Theory</h1>
+<h1 id="machine-reading">Machine Reading<a class="headerlink" href="#machine-reading" title="Permanent link">&para;</a></h1>
+<p>Open information extraction: Extract structured knowledge from unstructured texted without knowing what the entities or relations are in advance. </p>
+<p>This is unsupervised.</p>
+<h2 id="distant-supervision">Distant Supervision<a class="headerlink" href="#distant-supervision" title="Permanent link">&para;</a></h2>
+<p>We can get away from knowing fixed relationships. 
+Instead of manually labeling from an existing knowledge base.</p>
+<p>Positive Example: Every entity is related to another entity in a sentence. Jack loved his sister, Jill, very much. Jack and Jill are the entities connected by the relation, love. </p>
+<p>Negative Example: No relation between entities. Jack and Jill went up the hill.</p>
+<p>Open Info Extraction requires learning a way to recognize relations without labeling. The <strong>syntax</strong> of sentences provide clues about relations.</p>
+<p>Semantics arise from syntax. "Jane loves science." We get the meaning because we understand Jane is entity, science is a concept, and love is their positive affinity relationship.</p>
+<p>Part of Speech (POS) tagging.
+Assign a POS tag to each word in a sentence.
+Dynamic  Bayesian Network:
+Everything in the top row (tags) are latent properties of the document: they don't really exist.
+If tag is VRB we tend to see certain words we recognize as verbs, so the relationship is an 'emission.' P(word|tag). If a certain tag is present then it emits certain words with greater probability. 
+It's a dynamic bayesian network because we have this tag1 &gt; tag2 relationship, sequentially. We tend to see certain things follow other tags. P(tag2|tag1)
+Then we search for a set of tags that maximized the joint probability 
+1. Time proceeding through network
+tag1 &gt;  tag2 &gt;  tag3 
+v       v       v
+word1   word2   word3</p>
+<p>Dynamic Programming:
+We have words, not tags.
+Compute most likely explanation MLE: What sequence of latent values would most likely emit the observed sequence of words. Use the trick of dynamic programming, assume that choosing most likely tag for each time slice results in the most likely explanation for the entire sequence.</p>
+<p>Dependency Parsing
+Words have relationships to each other
+Graph-structured syntactic analysis of sentence that helps us find these relationships.
+a. root is a verb
+b arc are dependencies with types, telling us what is related and how.
+c. shift-reduce parsing
+1 build a dependency graph from the bottom up
+2. Buffer: data structure: Processes a sentence word by word from a buffer
+3. Stack: data structure: put words that we don't know what to do with in the stack.
+4. Operations</p>
+<p>But how do we know which operation (shift, left, or right?): Learn a classifier: supervised learning. 
+Given: a stack, a buffer, and POS tags
+Output: shift, left, right and maybe dependency type
+Build the dataset:
+1. distant supervision
+2. annotate lots of sentences with dependency graphs/parses
+manual process (people do it)
+Run stack-reduced operation forward and backwards using different operations until it matches the annotations we put in.
+This means backtracking when necessary to find the known graph
+It predicts the operations we have to do to get the answers according humans
+We end up with:
+1 X: partial parses of sentences (buffer, stack, POS tags), different stages at each moment: Input to classifier.
+2. Y: Best shift-reduce operations: labels for the classifier.</p>
+<hr />
+<p>Dependency Parsing
+Words have relationships to each other
+Graph-structured syntactic analysis of sentence that helps us find these relationships.
+a. root is a verb
+b arc are dependencies with types, telling us what is related and how.
+c. shift-reduce parsing
+1 build a dependency graph from the bottom up
+2. Buffer: data structure: Processes a sentence word by word from a buffer
+3. Stack: data structure: put words that we don't know what to do with in the stack.
+4. Operations</p>
+<p>But how do we know which operation (shift, left, or right?): Learn a classifier: supervised learning. 
+Given: a stack, a buffer, and POS tags
+Output: shift, left, right and maybe dependency type
+Build the dataset:
+1. distant supervision
+2. annotate lots of sentences with dependency graphs/parses
+manual process (people do it)
+Run stack-reduced operation forward and backwards using different operations until it matches the annotations we put in.
+This means backtracking when necessary to find the known graph
+It predicts the operations we have to do to get the answers according humans
+We end up with:
+1 X: partial parses of sentences (buffer, stack, POS tags), different stages at each moment: Input to classifier.
+2. Y: Best shift-reduce operations: labels for the classifier.</p>
+<p>__</p>
+<p>Dependency Parsing and Distant Supervision</p>
+<p>Goal: </p>
+<p>Analyze the grammatical structure of a sentence by building a dependency graph: a tree where</p>
+<p>The root is usually a verb</p>
+<p>Arcs are labeled with dependency types (e.g., subject, object) showing how words relate.</p>
+<p>How do we build the dependency graph:</p>
+<p>We use a shift-reduce parser, which processes the sentence bottom-up using:</p>
+<p>A buffer: words we still need to process</p>
+<p>A stack: words we've seen but haven't fully connected yet</p>
+<p>Operations (shift, left-arc, right-arc): actions that modify the stack and buffer and build the graph</p>
+<p>The problem: How we we know which operation to perform at each step?</p>
+<p>Solution:
+Train a classifier using supervised learning.</p>
+<p>Building the Training Dataset: Distant Supervision
+Since we need training examples of (stack, buffer, POS tags) mapped to best action, we simulate the parsing process using sentences already annotated with correct dependency trees (i.e., ground truth graphs).</p>
+<p>Steps:</p>
+<p>Manually annotated sentences:
+Humans create gold-standard dependency parses for lots of sentences. These are the raw material for the training data, but not the final form of the training example the classifier sees directly</p>
+<p>Replay parsing (shift-reduce simulation):
+We simulate the parsing process forward, trying operations (shift, left-arc, right-arc).</p>
+<p>Backtracking if necessary:
+If a wrong operation is chosen, we backtrack and adjust to make sure the sequence of operations leads exactly to the human-annotated tree.</p>
+<h1 id="create-training-examples">Create training examples:<a class="headerlink" href="#create-training-examples" title="Permanent link">&para;</a></h1>
+<p>X (input): Current parser state (stack, buffer, POS tags at that moment)</p>
+<p>Y (label): The correct next action (shift, left-arc, right-arc, with possibly a dependency label)</p>
+<h1 id="why-is-this-called-distant-supervision">Why is this called "distant supervision"?<a class="headerlink" href="#why-is-this-called-distant-supervision" title="Permanent link">&para;</a></h1>
+<p>We aren't labeling operations directly (no one manually labeled "shift here", "left-arc here").</p>
+<p>Instead, we use the distant information (full annotated trees) and infer the correct operations needed to build them.</p>
+<p>Supervision is based on final desired output, not step-by-step annotations.</p>
+<p>In short:
+We use final human-labeled parses to generate supervision over many intermediate parsing states.</p>
+<p>Given gold parse:
+"She eats apples" → "eats" is root, "She" is subject of "eats", "apples" is object of "eats."</p>
+<p>The simulation will do (each of the following three is a training example):</p>
+<p>Stack: [], Buffer: [She, eats, apples] → Action: shift</p>
+<p>Stack: [She], Buffer: [eats, apples] → Action: shift</p>
+<p>Stack: [She, eats], Buffer: [apples] → Action: left-arc (nsubj)</p>
+<p>and so on...</p>
+<p>Each (stack, buffer, POS) → action pair becomes a training sample.</p>
+<p>The original graph tells us what the right action should be at each step — but the classifier never gets the full graph as input.</p>
+<p>Instead of making the model predict an entire tree at once (too hard),</p>
+<p>We teach it moment-by-moment what the best move is,</p>
+<p>Based on the gold dependency tree created by humans.</p>
+<h1 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h1>
+<p>Suppose sentence:
+"She eats apples."</p>
+<p>Gold parse says:</p>
+<p>"eats" is root</p>
+<p>"She" → subject of "eats"</p>
+<p>"apples" → object of "eats"</p>
+<p>Training samples would look like:</p>
+<p>Partial state (stack, buffer, POS)  Best action (label)
+Stack: [], Buffer: [She, eats, apples], POS: [...]  shift
+Stack: [She], Buffer: [eats, apples], POS: [...]    shift
+Stack: [She, eats], Buffer: [apples], POS: [...]    left-arc (subject)
+Stack: [eats], Buffer: [apples], POS: [...] shift
+Stack: [eats, apples], Buffer: [], POS: [...]   right-arc (object)</p>
+<p>We train on (parser state → next action) pairs.
+We build the full graph by stringing together many next actions.
+The original annotated dependency graph is used only to supervise, not fed in directly.</p>
+<hr />
+<p>During Inference:
+We have a new sentence.</p>
+<p>Start:</p>
+<p>Stack is empty []</p>
+<p>Buffer has all the words of the new sentence [The, cat, eats, fish]</p>
+<p>POS tags are already assigned (by a separate POS-tagger)</p>
+<p>At each step:</p>
+<p>The parser looks at the current stack + buffer (+ POS tags)</p>
+<p>Uses the trained classifier to predict the best action: shift, left-arc, or right-arc (and maybe dependency label)</p>
+<p>Apply the predicted action:</p>
+<p>If classifier says shift: move word from buffer to stack</p>
+<p>If left-arc: create an arc and pop the second-to-top word from the stack</p>
+<p>If right-arc: create an arc and pop the top word from the stack</p>
+<p>Repeat:</p>
+<p>Keep feeding the new parser state into the model</p>
+<p>Keep taking actions</p>
+<p>Until the buffer is empty and only one item remains on the stack (the root)</p>
+<p>Result:</p>
+<p>You have a <strong>dependency graph</strong> for the whole sentence!</p>
+<p>By dependency parsing the arc map we can make tuples from the unstructured sentences <subject, relation, object>, because it walks us through the graph of the sentence.</p>
+<p>Put these tuples in the knowledge base to tell us the different ways the entities are related to each other. This makes a structured database.</p>
+<p>If we don't have perfect matches we use distributional approaches to match questions to relations. Cosine similarity helps us decide if this is the best tuple: we use cosine similarity between different parts of the sentence and pieces of info we have in the tuple.</p>
+<p>Parse a sentence → build a dependency graph (using your shift-reduce parser).</p>
+<p>Walk the dependency graph to extract meaningful (subject, relation, object) triples:</p>
+<p>Subject = the entity doing the action</p>
+<p>Relation = the action or link</p>
+<p>Object = the entity receiving the action</p>
+<p>→ Example:
+Sentence: "The cat eats fish."
+Dependency graph shows:</p>
+<p>cat (subject) → eats (verb)</p>
+<p>eats → fish (object)
+Tuple extracted: (cat, eats, fish)</p>
+<p>Store the triples in a knowledge base:</p>
+<p>Now you have structured, machine-readable data!</p>
+<p>Entities are related by known relationships.</p>
+<p>Natural language is messy: different ways to say the same thing.</p>
+<p>Distributional approaches help:</p>
+<p>Use word embeddings (like Word2Vec, GloVe) to represent words or phrases as vectors.</p>
+<p>Use cosine similarity between:</p>
+<p>Words in the question</p>
+<p>Words in the knowledge base tuples</p>
+<p>This lets you approximate matches, even if the phrasing isn't exactly the same.</p>
+<p>Example:</p>
+<p>Question: "What does a feline consume?"</p>
+<p>Knowledge base: (cat, eats, fish)</p>
+<p>Even though "feline" ≠ "cat" and "consume" ≠ "eats," cosine similarity would reveal they're close!</p>
+<hr />
+<p>That works for who what where and when questions. But why questions are harder.</p>
+<p>Events are descriptions of changes in the state of world (actual or implied). We need to get at the semantics of the events because these are not in the text.</p>
+<p>Frames:
+Acknowledge that a word's meaning cannot be understood without access to essential knowledge that relates to the world.</p>
+<p>A Frame is a system that relates concepts such that understanding one concept requires the understanding of all concepts and their relationships</p>
+<p>circular: seller &gt; sell &gt; recipient &gt; possession &gt; seller ...</p>
+<p>FrameNet: avenger, punishment, offender, injury, injured-party
+Made by humans
+Lexical units can bring up this frame: get back at, get even, avenge...</p>
+<p>If we can identify the frame and the frame elements, we can make inferences about the relationships between the frame elements that we might not be able to do from just the surface form of the sentence.</p>
+<p>Sally wanted to get back at Jane after her cat died.
+Why did sally want to do this?
+"We need to understand 'get back at'.</p>
+<p>VerbNet: Linguist resource of frames centered around verbs.</p>
+<p>Links syntactic and semantic patterns.</p>
+<p>Can be used for:
+Word Sense Disambiguation 
+Figurative Language Detection</p>
+<p>VerbNet organizes verbs into classes based on their meaning and syntax.</p>
+<p>Each verb class defines:</p>
+<p>What kinds of participants (roles) it expects (Agent, Patient, Instrument, etc.)</p>
+<p>What kinds of syntactic frames are typical (subject-verb-object, subject-verb, etc.)</p>
+<p>It also gives semantic roles and predicates that describe the event structure clearly.</p>
+<p>Key: VerbNet links natural language to structured events and roles.</p>
 
-<p>perfect information: we always know what state we are in</p>
-<p>strategies: mapping of all possible states to actions. Each agent has their own strategy.</p>
 
 
 
 
 
-
-
-  
-  
 
 
 
