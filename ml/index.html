@@ -945,21 +945,36 @@
 <p>log base 2, is like keep dividing by 2</p>
 <h3 id="pac-learning-probably-approximately-correct-error-of-hypothesis-h">PAC Learning : Probably Approximately Correct : Error of hypothesis h<a class="headerlink" href="#pac-learning-probably-approximately-correct-error-of-hypothesis-h" title="Permanent link">&para;</a></h3>
 <p>Training Error: Fraction of training examples misclassified by h.<br />
-Target concept should have training error of zero.</p>
+Target concept should have training error of zero.<br />
+\(error_d (h_i) &gt; \epsilon\) means h is wrong, aka  \( h_i \neq c_i \)</p>
 <p>True Error: Fraction of examples that <em>would be</em> misclassified on sample drawn from D in, essentially, the infinite limit. The probability that a sample drawn from D would be misclassified by some hypothesis h. 
-\(  error_d(h) = P(c(x) \neq h(x)) in x~D distribution \)</p>
+\(  error_d(h) = P(c(x) \neq h(x))\) in x~D distribution </p>
 <p>So we are not penalized for examples that we never see. And examples that we see rarely, we only get a time bit of contribution to the overall error.</p>
-<p>True Hypothesis \(   c \in  H \) 
-Concept: c aka label
-Concept Class: The class from which the concept that we are trying to learn comes from. <br />
-Hypothesis Space: H : The set of mappings that the learning is going to consider.<br />
-Size of the hypothesis space: |H|: n<br />
-Distribution over inputs: D<br />
-Error Goal: \(   0 \leq \epsilon \leq 1/2\) : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  <em>Approximately</em><br />
-Certainty Goal: \(   0 \leq \delta 1/2\) : We might be unlucky and not meet our error goal, \(   \delta\)allows us to set a certainty goal, which means with \(   P(1 - \delta)\), the algorithm has to work. To work, here, means to produce a True Error \(   \leq to epsilon\). <em>Probably</em></p>
-<p>C is PAC-Learnable by L using H iff learning L will, with high probability at least \(   1-/delta)\), output a hypothesis h \in H s.t. it is very accurate \(   (error_D(h) \leq \epsilon)\); and in time and samples it is bounded by polynomial in \(   1/\epsilon, 1/\delta,\)and n. </p>
+<p>C is PAC-Learnable by <em>L</em> using <em>H</em> \(iff\) learning <em>L</em> will, with high probability at least \(  1-\delta)\), output a hypothesis h \(\in\) <em>H</em> s.t. it is very accurate \( (error_D(h) \leq \epsilon)\); and in time and samples it is bounded by polynomial in \(  1/\epsilon, 1/\delta,\)and n. </p>
 <p>If we want perfect error and perfect certainty than the denominators go to infinity as we look at all the data.</p>
 <p>Meaning something is PAC-Learnable if we can learn to get a low error, with high confidence, in time that is sort of polynomial in all the parameters.</p>
+<ul>
+<li>True Hypothesis: \(  c \in  H \) : hypothesis = function</li>
+<li>Concept: <em>c</em> aka label</li>
+<li>Concept Class: The class from which the concept that we are trying to learn comes from.   </li>
+<li>Hypothesis Space: H : The set of mappings that the learning is going to consider.  </li>
+<li>Size of the hypothesis space: |H|: n  </li>
+<li>Distribution over inputs: D </li>
+<li><strong>Version Space</strong>: VS(S) = {h s.t. h \(\in H consistent wrt S}\) : hypothesis consistent with examples : the function we learned makes the examples labeled correctly.   </li>
+<li>Error Goal: \(   0 \leq \epsilon \leq 1/2\) : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  <em>Approximately</em>  </li>
+<li>Certainty Goal: \(   0 \leq \delta 1/2\) : We might be unlucky and not meet our error goal, \(   \delta\)allows us to set a certainty goal, which means with \(   P(1 - \delta)\), the algorithm has to work. To work, here, means to produce a True Error \(   \leq to epsilon\). <em>Probably</em></li>
+</ul>
+<p>Haussler's Theorem (Realizable Case)</p>
+<p>Let H be a finite hypothesis class, and let h \(\in\) H be a hypothesis consistent with a training set of <em>m</em> examples drawn i.i.d. from an unknown distribution <em>D</em>. Suppose the target function <em>f</em> is h \(\in\) H (i.e., the realizable case).</p>
+<p>Then for any \(\epsilon &gt; 0\) and \(\delta \in (0, 1)\), if</p>
+<p>\(
+m \geq \frac{1}{\epsilon} \left( \log |H| + \log \frac{1}{\delta} \right),
+\)</p>
+<p>then with probability at least \(1 - \delta\), every hypothesis \(h \in H\)that is consistent with the training data satisfies</p>
+<p>\(
+\Pr_{x \sim D} [h(x) \neq f(x)] \leq \epsilon.
+\)</p>
+<p><strong>H is PAC-Learnable \(iff\) VC dimension is finite.</strong></p>
 <h2 id="vc-dimensions">VC Dimensions<a class="headerlink" href="#vc-dimensions" title="Permanent link">&para;</a></h2>
 <p>VC Dimensions help us determine how much data we need to learn effectively even if the hypothesis class is infinite. It expresses how expressive or powerful a model class is in terms of what patterns it can learn: this is a measure of complexity or capacity. </p>
 <p>Most of the algorithms we use have an infinite hypothesis space:<br />
@@ -967,7 +982,7 @@ Certainty Goal: \(   0 \leq \delta 1/2\) : We might be unlucky and not meet our 
 - NN: each weights has an infinite amount of numbers it can be since weights are reals<br />
 - decision trees with continuous inputs: infinite number of questions we can ask at decision nodes<br />
 - ...</p>
-<p>How all of our ML algorithms work is like this: keep track of <em>all</em> hypotheses and keep this version space. Once we see enough examples randomly drawn we know we've epsilon-exhausted the version space. So any hypothesis that is left is going to be ok.</p>
+<p>How all of our ML algorithms work is like this: keep track of <em>all</em> hypotheses and keep this <strong>version space</strong>. Once we see enough examples randomly drawn we know we've <strong>epsilon-exhausted</strong> the version space. So any hypothesis that is left is going to be ok.</p>
 <p>But we can't keep track of infinite hypotheses.</p>
 <p>So we will find a way to keep track of only the hypothesis that can affect the outcome differently. </p>
 <p>Example:
