@@ -14,20 +14,20 @@ Training Error: Fraction of training examples misclassified by h.
 Target concept should have training error of zero.
 
 True Error: Fraction of examples that *would be* misclassified on sample drawn from D in, essentially, the infinite limit. The probability that a sample drawn from D would be misclassified by some hypothesis h. 
-(\\  error_d(h) = P(c(x) \neq h(x)) in x~D distribution)\\
+\\(  error_d(h) = P(c(x) \neq h(x)) in x~D distribution \\)
 
 So we are not penalized for examples that we never see. And examples that we see rarely, we only get a time bit of contribution to the overall error.
 
-True Hypothesis (\\  c \in  H )\\ 
+True Hypothesis \\(   c \in  H \\) 
 Concept: c aka label
 Concept Class: The class from which the concept that we are trying to learn comes from.   
 Hypothesis Space: H : The set of mappings that the learning is going to consider.  
 Size of the hypothesis space: |H|: n  
 Distribution over inputs: D  
-Error Goal: (\\  0 \leq \epsilon \leq 1/2)\\ : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  *Approximately*  
-Certainty Goal: (\\  0 \leq \delta 1/2)\\ : We might be unlucky and not meet our error goal, (\\  \delta)\\allows us to set a certainty goal, which means with (\\  P(1 - \delta))\\, the algorithm has to work. To work, here, means to produce a True Error (\\  \leq to epsilon)\\. *Probably*
+Error Goal: \\(   0 \leq \epsilon \leq 1/2\\) : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  *Approximately*  
+Certainty Goal: \\(   0 \leq \delta 1/2\\) : We might be unlucky and not meet our error goal, \\(   \delta\\)allows us to set a certainty goal, which means with \\(   P(1 - \delta)\\), the algorithm has to work. To work, here, means to produce a True Error \\(   \leq to epsilon\\). *Probably*
 
-C is PAC-Learnable by L using H iff learning L will, with high probability at least (\\  1-/delta))\\, output a hypothesis h \in H s.t. it is very accurate (\\  (error_D(h) \leq \epsilon))\\; and in time and samples it is bounded by polynomial in (\\  1/\epsilon, 1/\delta,)\\ and n. 
+C is PAC-Learnable by L using H iff learning L will, with high probability at least \\(   1-/delta)\\), output a hypothesis h \in H s.t. it is very accurate \\(   (error_D(h) \leq \epsilon)\\); and in time and samples it is bounded by polynomial in \\(   1/\epsilon, 1/\delta,\\)and n. 
 
 If we want perfect error and perfect certainty than the denominators go to infinity as we look at all the data.
 
@@ -53,11 +53,11 @@ So we will find a way to keep track of only the hypothesis that can affect the o
 
 Example:
 X: {1,2,3,4,5,6,7,8,9,10}  
-H: {h(x) = x (\\ \leq \theta )\\}
+H: {h(x) = x \\(  \leq \theta \\)}
 
-|H| = (\\ \infinite )\\
+|H| = \\(  \infinite \\)
 
-But only (\\ \theta )\\ above 10 is important
+But only \\(  \theta \\) above 10 is important
 
 VC Dimension it the maximum number of points that can be shattered by the hypotheses in that space.
 
