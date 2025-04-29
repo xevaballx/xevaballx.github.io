@@ -32,7 +32,7 @@ Meaning: something is PAC-Learnable if we can learn to get a low error, with hig
 - Hypothesis Space: H : The set of mappings that the learning is going to consider.  
 - Size of the hypothesis space: |H|: n  
 - Distribution over inputs: D 
-- **Version Space**: VS(S) = {h s.t. h \\(\in H consistent wrt S\\) : hypothesis consistent with examples : **the function we learned labels the data correctly**.   
+- **Version Space**: VS(S) = { *h* s.t. h \\(\in H \text{consistent wrt} S\\) : hypothesis consistent with examples : **the function we learned labels the data correctly**.   
 - Error Goal: \\(   0 \leq \epsilon \leq 1/2\\) : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  *Approximately*  
 - Certainty Goal: \\(   0 \leq \delta 1/2\\) : We might be unlucky and not meet our error goal, \\(   \delta\\)allows us to set a certainty goal, which means with \\(   P(1 - \delta)\\), the algorithm has to work. To work, here, means to produce a True Error \\(   \leq to \epsilon\\). *Probably*
 
@@ -56,8 +56,10 @@ then with probability at least \\(1 - \delta\\), every hypothesis \\(h \in H\\)t
 And for infinite hypothesis class:
 
 \\(
-m \geq \frac{1}{\epsilon} \left( (\dot VC |H|) /dot /log_2 + 4\log \frac{2}{\delta} \right),
+m \geq \frac{1}{\epsilon} \left( (8 \cdot VC |H|) \cdot \log_2 + 4\log_2 \frac{2}{\delta} \right),
 \\)
+
+As VS|H| gets bigger we need more data.
 
 *So...*     
 **H is PAC-Learnable \\(iff\\) VC dimension is finite.**
