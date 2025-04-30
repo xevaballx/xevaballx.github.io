@@ -47,10 +47,6 @@ For the **optimal policy**, the **Bellman Optimality Equation** is:
 \\( V^\ast(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V^\ast(s') \right] \\)
 
 
-\\( 
-V^*(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V^*(s') \right]
-\\)
-
 That’s where we actually optimize over actions to find the best action.
 
 ## **Value Iteration (VI)**
@@ -63,7 +59,7 @@ Update rule:
 V_{k+1}(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V_k(s') \right]
 \\)
 
-Once \\( V^* \\) has converged, the **optimal policy** can be extracted by choosing the action that maximizes the expected return:
+Once \\( V^\ast \\) has converged, the **optimal policy** can be extracted by choosing the action that maximizes the expected return:
 
 \\( \pi^\ast(s) = \arg\max_a \mathbb{E} \left[ R(s, a) + \gamma V^*(s') \right] \\)
 
@@ -112,7 +108,7 @@ Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s,
 Over time, Q-learning converges to the optimal Q-function, and the **optimal policy** is:
 
 \\(
-\pi^*(s) = \arg\max_a Q^*(s, a)
+\pi^\ast(s) = \arg\max_a Q^\ast(s, a)
 \\)
 
 
