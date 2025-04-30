@@ -40,7 +40,7 @@ Forms elongated chain-like clusters. Can handle non-spherical shapes but is sens
 - Doesn’t model probability or handle overlapping clusters well.  
 - Works best with **spherical**, equally sized clusters, which can be a problem as shown in the image below.
 
-<img src="../assets/images/kmeans-spheres.png" alt="Kmeans spherical illustration" style="width:25%;">
+![Kmeans spherical illustration](../assets/images/kmeans-spheres.png){ width="25%" }
 
 
 ## **Expectation-Maximization (EM)**

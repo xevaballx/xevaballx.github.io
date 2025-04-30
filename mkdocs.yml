@@ -19,6 +19,8 @@ markdown_extensions:
   - toc:
       permalink: true
   - admonition
+  - attr_list
+  - md_in_html
   - pymdownx.arithmatex
   - pymdownx.highlight
   - pymdownx.snippets
