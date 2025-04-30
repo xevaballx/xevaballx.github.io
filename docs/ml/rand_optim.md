@@ -35,18 +35,22 @@ The acceptance probability is the "else" case is directly related to the differe
 Inspired by biological evolution. Maintains a population of solutions that evolve over time via selection, crossover, and mutation. Good at global exploration and well-suited for discrete and combinatorial problems, but can be computationally expensive.
 
 Steps:
-1. Randomly initialize a population P of candidate solutions (chromosomes) of size k
-2. Evaluate the fitness of each individual in the population, all \\(x \in P\\)
+1. Randomly initialize a population P of candidate solutions (chromosomes) of size k  
+2. Evaluate the fitness of each individual in the population, all \\(x \in P\\)  
 3. Select parents from the population based on high fitness
-4. **Crossover**: Combine parts of two parents to create offspring
-5. **Mutate** some of the offspring randomly to maintain diversity (exploration)
-6. Evaluate fitness of the offspring
-7. Replace individuals in the population with the new offspring
-8. Go back to step 3 util stopping condition met
+4. **Crossover**: Combine parts of two parents to create offspring  
+5. **Mutate** some of the offspring randomly to maintain diversity (exploration)  
+6. Evaluate fitness of the offspring  
+7. Replace individuals in the population with the new offspring  
+8. Go back to step 3 util stopping condition met  
+
+Genetic Algorithms use probability at almost every step — selection, crossover, mutation — to explore the search space stochastically rather than deterministically.
 
 ## **MIMIC (Mutual Information Maximizing Input Clustering)**
 
 A probabilistic optimization method that samples solutions based on a learned probability model. At each iteration, it builds a model from the best samples and uses it to generate better ones. Powerful for problems with interdependent variables, but computationally heavy.
+
+---
 
 | Algorithm | Best For | Not Good At |
 |-----------|----------|-------------|

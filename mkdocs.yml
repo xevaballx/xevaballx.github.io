@@ -48,6 +48,7 @@ nav:
       - Bayesian Learning: ml/bayes_learning.md
       - Clustering: ml/clustering.md
       - Decision Trees: ml/decision_trees.md
+      - Features: ml/features.md
       - Instance Based Learning: ml/instance_based.md
       - Neural Nets: ml/nn.md
       - Random Optimization: ml/rand_optim.md
