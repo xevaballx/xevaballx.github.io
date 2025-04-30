@@ -50,6 +50,7 @@ nav:
       - Decision Trees: ml/decision_trees.md
       - Instance Based Learning: ml/instance_based.md
       - Neural Nets: ml/nn.md
+      - Random Optimization: ml/rand_optim.md
       - SVM: ml/svm.md
   - NLP:
       - Overview: nlp/index.md

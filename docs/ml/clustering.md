@@ -1,6 +1,6 @@
 # Clustering
 
-Clustering is a way to describe unlabeled by putting objects into groups or clusters. 
+Clustering is a way to describe unlabeled by putting objects into groups or clusters. Clusters can help uncover hidden structure, and may align with true labels in structured datasets.
 
 **Features scaling** ensures all features have equal importance and  is essential for all three algorithms below since similarity is measured by "distance." Euclidean distance for K-Means and SLC; and for EM distance is measured using Gaussian densities, where unscaled features skew covariance estimation and likelihood. 
 
