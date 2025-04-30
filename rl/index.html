@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#reinforcement-learning" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -458,7 +463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ml/features.md" class="md-nav__link">
+      <a href="../ml/feature/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -856,6 +861,20 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -867,6 +886,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#markov-decision-process-mdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markov Decision Process (MDP)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy (\( \pi \))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bellman-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bellman Equation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-iteration-vi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Value Iteration (VI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-iteration-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Iteration (PI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q-Learning
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -919,6 +1011,70 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#markov-decision-process-mdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markov Decision Process (MDP)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy (\( \pi \))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bellman-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bellman Equation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-iteration-vi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Value Iteration (VI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-iteration-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Iteration (PI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q-Learning
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -934,23 +1090,102 @@
 
 
 
-  <h1>Overview</h1>
-
+<h1 id="reinforcement-learning"><strong>Reinforcement Learning</strong><a class="headerlink" href="#reinforcement-learning" title="Permanent link">&para;</a></h1>
+<h2 id="markov-decision-process-mdp"><strong>Markov Decision Process (MDP)</strong><a class="headerlink" href="#markov-decision-process-mdp" title="Permanent link">&para;</a></h2>
+<p>An <strong>MDP</strong> is a formal framework used in reinforcement learning to model decision-making in environments with <strong>stochastic outcomes</strong>. It provides a structured way to reason about states, actions, rewards, and transitions over time. An MDP assumes the <strong>Markov property</strong>, meaning the future depends only on the current state and action, not the full history.</p>
+<p>An MDP is defined by the tuple:</p>
+<p>\(
+(\mathcal{S}, \mathcal{A}, \mathcal{P}, \mathcal{R}, \gamma)
+\)</p>
+<ul>
+<li>\( \mathcal{S} \): set of possible <strong>states</strong>  </li>
+<li>\( \mathcal{A} \): set of possible <strong>actions</strong>  </li>
+<li>\( \mathcal{P}(s' \mid s, a) \): <strong>transition probability</strong>   function</li>
+<li>\( \mathcal{R}(s, a) \): <strong>reward function</strong>  </li>
+<li>\( \gamma \in [0,1] \): <strong>discount factor</strong>, which prioritizes immediate rewards over distant ones  </li>
+</ul>
+<h2 id="policy-pi"><strong>Policy (\( \pi \))</strong><a class="headerlink" href="#policy-pi" title="Permanent link">&para;</a></h2>
+<p>A <strong>policy</strong> defines the behavior of an agent in a MDP. It maps <strong>states to actions</strong>, specifying what action the agent should take in each state.</p>
+<ul>
+<li>
+<p>A <strong>deterministic policy</strong> is a function:<br />
+  \( \pi(s) = a \)  </p>
+</li>
+<li>
+<p>A <strong>stochastic policy</strong> gives a probability distribution over actions:<br />
+  \( \pi(a \mid s) = P(\text{take action } a \text{ in state } s) \)</p>
+</li>
+</ul>
+<p>The goal of reinforcement learning is to <strong>find a policy that maximizes expected cumulative reward</strong> over time.</p>
+<h2 id="bellman-equation"><strong>Bellman Equation</strong><a class="headerlink" href="#bellman-equation" title="Permanent link">&para;</a></h2>
+<p>The <strong>Bellman Equation</strong> expresses the value of a state as the <strong>expected return</strong> starting from that state and following a given policy. It breaks down the value into <strong>immediate reward plus the discounted value of the next state</strong>, enabling recursive computation of value functions.</p>
+<p>For a <strong>policy \( \pi \)</strong>, the <strong>Bellman Expectation Equation</strong> is:</p>
+<p>\(
+V^\pi(s) = \mathbb{E}_\pi \left[ R(s, a) + \gamma V^\pi(s') \right]
+\)</p>
+<p>The Bellman Equation doesn't tell you which action to take — it tells you the expected value (i.e., long-term return) of being in a state (or taking an action in a state) under a specific policy.</p>
+<p>For the <strong>optimal policy</strong>, the <strong>Bellman Optimality Equation</strong> is:</p>
+<p>\(
+V^<em>(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V^</em>(s') \right]
+\)</p>
+<p>That’s where we actually optimize over actions to find the best one.</p>
+<h2 id="value-iteration-vi"><strong>Value Iteration (VI)</strong><a class="headerlink" href="#value-iteration-vi" title="Permanent link">&para;</a></h2>
+<p><strong>Value Iteration</strong> is a dynamic programming algorithm that finds the <strong>optimal value function</strong> by repeatedly applying the <strong>Bellman Optimality Equation</strong>. At each step, it updates the value of every state based on the <strong>best possible action</strong>, gradually converging to the optimal value function \( V^* \).</p>
+<p>Update rule:</p>
+<p>\(
+V_{k+1}(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V_k(s') \right]
+\)</p>
+<p>Once \( V^<em> \) has converged, the </em><em>optimal policy</em>* can be extracted by choosing the action that maximizes the expected return:</p>
+<p>\(
+\pi^<em>(s) = \arg\max_a \mathbb{E} \left[ R(s, a) + \gamma V^</em>(s') \right]
+\)</p>
+<h2 id="policy-iteration-pi"><strong>Policy Iteration (PI)</strong><a class="headerlink" href="#policy-iteration-pi" title="Permanent link">&para;</a></h2>
+<p><strong>Policy Iteration</strong> is a dynamic programming method that alternates between <strong>evaluating a policy</strong> and <strong>improving it</strong> until convergence to the <strong>optimal policy</strong> \( \pi^* \).</p>
+<p>It has two main steps:</p>
+<ol>
+<li>
+<p><strong>Policy Evaluation</strong>:<br />
+   Compute the value function \( V^\pi(s) \) for the current policy using the Bellman Expectation Equation.</p>
+</li>
+<li>
+<p><strong>Policy Improvement</strong>:<br />
+   Update the policy by choosing the action that maximizes expected return using \( V^\pi(s) \):</p>
+</li>
+</ol>
+<p>\(
+   \pi'(s) = \arg\max_a \mathbb{E} \left[ R(s, a) + \gamma V^\pi(s') \right]
+   \)</p>
+<p>Repeat these steps until the policy stops changing — at that point, \( \pi^<em> \) is the </em><em>optimal policy</em>*.</p>
+<p>More expensive than VI, but less iterations.</p>
+<h2 id="q-learning"><strong>Q-Learning</strong><a class="headerlink" href="#q-learning" title="Permanent link">&para;</a></h2>
+<p>Value Iteration (VI) and Policy Iteration (PI)are used to solve MDPs, but they are not considered true reinforcement learning algorithms, because they assume full knowledge of the environment:</p>
+<p>They require access to the <strong>transition probabilities</strong> \( P(s' \mid s, a) \) and the <strong>reward function</strong> \( R(s, a) \).</p>
+<p>In contrast, <strong>reinforcement learning</strong> (like Q-learning or SARSA) is designed for situations where the agent must <strong>learn by interacting with the environment</strong>, without knowing the transition or reward model in advance.</p>
+<p><strong>Q-learning</strong> is an <strong>off-policy reinforcement learning algorithm</strong> that learns the <strong>optimal action-value function</strong> \( Q^*(s, a) \) without requiring a model of the environment. It updates estimates of Q-values based on observed rewards and the maximum estimated future return.</p>
+<p>The update rule is:</p>
+<p>\(
+Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]
+\)</p>
+<ul>
+<li>\( \alpha \): learning rate  </li>
+<li>\( \gamma \): discount factor  </li>
+<li>\( r \): reward from taking action \( a \) in state \( s \)  </li>
+<li>\( s' \): resulting next state</li>
+</ul>
+<p>Over time, Q-learning converges to the optimal Q-function, and the <strong>optimal policy</strong> is:</p>
+<p>\(
+\pi^<em>(s) = \arg\max_a Q^</em>(s, a)
+\)</p>
 <p><strong>Q-Values</strong> represent expected cumulative reward for taking a specific action in a given state.</p>
 <p>Q-values represent the <strong>expected cumulative reward</strong> for taking a specific <strong>action</strong> in a given <strong>state</strong>, and then following the policy thereafter. So:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<p>\(
 Q(s, a) = \mathbb{E} \left[ \sum_{t=0}^{\infty} \gamma^t R_t \mid s_0 = s, a_0 = a \right]
-</div>
-<script type="math/tex; mode=display">
-Q(s, a) = \mathbb{E} \left[ \sum_{t=0}^{\infty} \gamma^t R_t \mid s_0 = s, a_0 = a \right]
-</script>
-</div>
+\)</p>
 <p>Where:
-- <span class="arithmatex"><span class="MathJax_Preview"> s </span><script type="math/tex"> s </script></span> is the current state
-- <span class="arithmatex"><span class="MathJax_Preview"> a </span><script type="math/tex"> a </script></span> is the action taken
-- <span class="arithmatex"><span class="MathJax_Preview"> \gamma </span><script type="math/tex"> \gamma </script></span> is the discount factor
-- <span class="arithmatex"><span class="MathJax_Preview"> R_t </span><script type="math/tex"> R_t </script></span> are the rewards</p>
+- \( s \) is the current state
+- \( a \) is the action taken
+- \( \gamma \) is the discount factor
+- \( R_t \) are the rewards</p>
 <p>So it’s about both <strong>state and action</strong> (not just the state).</p>
 <p><strong>epsilon decay ration</strong>
 Even if we think a certain action has the highest Q-Value(based on earlier exploration) in a state, we still randomly try other actions with probability epsilon. This helps us discover better actions we might have missed early on.</p>
@@ -958,23 +1193,46 @@ Even if we think a certain action has the highest Q-Value(based on earlier explo
 Controls how much we update the Q-value based on new information. Higher values is bigger updates to Q-values.</p>
 <p>Epsilon controls which actions we try (explore).</p>
 <p>Alpha controls how strongly each experience influences learning. </p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<p>\(
 Q(s, a) \leftarrow Q(s, a) + \alpha \cdot \big[ \text{target} - Q(s, a) \big]
-</div>
-<script type="math/tex; mode=display">
-Q(s, a) \leftarrow Q(s, a) + \alpha \cdot \big[ \text{target} - Q(s, a) \big]
-</script>
-</div>
+\)</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Key Idea</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Value Iteration (VI)</strong></td>
+<td>Iteratively update value function using Bellman optimality</td>
+<td>Simple to implement; guaranteed convergence</td>
+<td>Requires full model; can be slow to converge</td>
+</tr>
+<tr>
+<td><strong>Policy Iteration (PI)</strong></td>
+<td>Alternates between policy evaluation and improvement</td>
+<td>Often faster convergence than VI</td>
+<td>Requires full model; policy evaluation can be expensive</td>
+</tr>
+<tr>
+<td><strong>Q-Learning</strong></td>
+<td>Learn action-value function via experience; off-policy</td>
+<td>Doesn’t need model; learns while acting</td>
+<td>Slower convergence; sensitive to exploration strategy</td>
+</tr>
+</tbody>
+</table>
 
 
 
 
 
 
-
-  
-  
 
 
 
