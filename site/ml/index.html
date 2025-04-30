@@ -464,6 +464,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Information Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#information-between-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information Between Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -487,6 +502,28 @@
   
   <span class="md-ellipsis">
     Bayesian Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering
     
   </span>
   
@@ -982,6 +1019,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Information Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#information-between-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information Between Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1000,12 +1052,12 @@
 
 
 
-<h1 id="machine-learning">Machine Learning<a class="headerlink" href="#machine-learning" title="Permanent link">&para;</a></h1>
+<h1 id="machine-learning"><strong>Machine Learning</strong><a class="headerlink" href="#machine-learning" title="Permanent link">&para;</a></h1>
 <p><a href="https://www.youtube.com/watch?v=DQWI1kvmwRg"><img alt="Watch on YouTube" src="https://img.youtube.com/vi/DQWI1kvmwRg/3.jpg" /></a></p>
 <p>An inductive learner uses examples to find the best hypothesis h* from some class H. H is the set of possible answers to the problem. Think of hypothesis h as candidate answers.</p>
-<h2 id="computation-learning-theory">Computation Learning Theory<a class="headerlink" href="#computation-learning-theory" title="Permanent link">&para;</a></h2>
+<h2 id="computation-learning-theory"><strong>Computation Learning Theory</strong><a class="headerlink" href="#computation-learning-theory" title="Permanent link">&para;</a></h2>
 <p>log base 2, is like keep dividing by 2</p>
-<h3 id="pac-learning-probably-approximately-correct-error-of-hypothesis-h">PAC Learning : Probably Approximately Correct : Error of Hypothesis h<a class="headerlink" href="#pac-learning-probably-approximately-correct-error-of-hypothesis-h" title="Permanent link">&para;</a></h3>
+<h3 id="pac-learning-probably-approximately-correct-error-of-hypothesis-h"><strong>PAC Learning : Probably Approximately Correct : Error of Hypothesis h</strong><a class="headerlink" href="#pac-learning-probably-approximately-correct-error-of-hypothesis-h" title="Permanent link">&para;</a></h3>
 <p>Training Error: Fraction of training examples misclassified by h.<br />
 Target concept should have training error of zero.<br />
 \(error_d (h_i) &gt; \epsilon\) means h is wrong, aka  \( h_i \neq c_i \)</p>
@@ -1043,7 +1095,7 @@ m \geq \frac{1}{\epsilon} \left( (8 \cdot VC |H|) \cdot \log_2 + 4\log_2 \frac{2
 <p>As VS|H| gets bigger we need more data.</p>
 <p><em>So...</em>   <br />
 <strong>H is PAC-Learnable \(iff\) VC dimension is finite.</strong></p>
-<h3 id="vc-dimensions">VC Dimensions<a class="headerlink" href="#vc-dimensions" title="Permanent link">&para;</a></h3>
+<h3 id="vc-dimensions"><strong>VC Dimensions</strong><a class="headerlink" href="#vc-dimensions" title="Permanent link">&para;</a></h3>
 <p>VC Dimensions help us determine how much data we need to learn effectively even if the hypothesis class is infinite. It expresses how expressive or powerful a model class is in terms of what patterns it can learn: this is a measure of complexity or capacity. </p>
 <p>Most of the algorithms we use have an infinite hypothesis space:<br />
 - linear separators: there are infinite number of lines to choose from since m x and b are reals<br />
@@ -1062,7 +1114,7 @@ H: {h(x) = x \(  \leq \theta \)}</p>
 <p>Shatter: For every possible labeling (0/1 classification) of the points, there exists a hypothesis (a classifier from your class) that perfectly separates the points according to that labeling.</p>
 <p>VC dimension depends on the hypothesis class, not strictly the number of input features. Example: Both a circle and a sphere have 2 VC dimensions</p>
 <p>High VC dimension mean the model can shatter more configurations, increasing the risk of over fit, likewise lower VC dimensions may to under fitting and poor accuracy if they are too low.</p>
-<h2 id="information-theory">Information Theory<a class="headerlink" href="#information-theory" title="Permanent link">&para;</a></h2>
+<h2 id="information-theory"><strong>Information Theory</strong><a class="headerlink" href="#information-theory" title="Permanent link">&para;</a></h2>
 <p>In ML we want to know:</p>
 <ol>
 <li>How each input relates to <em>y</em></li>
@@ -1073,10 +1125,10 @@ H: {h(x) = x \(  \leq \theta \)}</p>
 <p>Are input vectors are similar:  <strong>mutual information</strong></p>
 <p>Does this feature have any information: <strong>entropy</strong></p>
 <p>If output is predictable we don't need to communicate. Uncertain, meaningful information is harder to communicate and require more resources.</p>
-<p>more predictable \(\approx\) less uncertainty \(\approx\) less information</p>
+<p>more predictable \(\approx\) less uncertainty \(\approx\) less information \(\approx\) less entropy</p>
 <p>Example: Which message has more information?<br />
 Given:<br />
-- Language L={A,B,C,D}
+- Language L={A,B,C,D}<br />
 - Each word is represented by 2 bits, and occur with a specified probability.</p>
 <p>First lets assume all words occur equally:</p>
 <p>A: 00   25%<br />
@@ -1108,22 +1160,33 @@ D: 10<br />
 B: 110<br />
 C: 111   </p>
 <p>Since A occurs most frequently and we only have to ask one question to determine if the symbol is A, we can ask less questions overall. We use the expected value to find out how much exactly.</p>
-<p>\(\sum P(\text{symbol}) \times \text{size of symbol}\)(<strong>Entropy</strong>)
-= 1P(A) + 2P(D) + 3P(B) + 3P(C)
-= 0.5 + 0.5 + 0.375 + 0.375
-= 1.75 bits per symbol</p>
+<p>\(\sum P(\text{symbol}) \times \text{size of symbol}\): (<strong>Entropy</strong>)
+= 1P(A) + 2P(D) + 3P(B) + 3P(C)<br />
+= 0.5 + 0.5 + 0.375 + 0.375<br />
+= 1.75 bits per symbol  </p>
 <p>= 1.75 bits &lt; 2 bits </p>
-<p>The second language has less information and it called <em>variable length encoding</em>. Explains why in morse code some symbols are smaller than others.</p>
-<p><strong>Entropy</strong>
-As shown above:<br />
+<p>The second language has more information and less randomness.</p>
+<p>Note: This technique is called <em>variable length encoding</em> and explains why in morse code some symbols are smaller than others.</p>
+<p><strong>Entropy</strong></p>
+<p>Entropy captures the in amount of information contained in the variable by quantifying the uncertainty or unpredictability of the variable. </p>
+<p>higher entropy \(\approx\) more uncertainty \(\approx\) more information </p>
+<p>As shown above:<br />
 \(\sum P(\text{symbol}) \times \text{size of symbol}\)</p>
 <p>But we need to denote the size of each symbol more properly:</p>
 <p>\(\sum P(\text{symbol}) \times \frac{1}{P(\text{size of symbol})}\)</p>
-<p>sum of P(symbol) * log 1/P(symbol)</p>
-<ul>
-<li>sum P(S) * log P(S) </li>
-</ul>
-<p>\(- \sum P(s) \cdot \log_2 P(s)\)</p>
+<p>\(H(L) = - \sum P(s) \cdot \log_2 P(s)\)</p>
+<h3 id="information-between-variables"><strong>Information Between Variables</strong><a class="headerlink" href="#information-between-variables" title="Permanent link">&para;</a></h3>
+<p>Having information about multiple variables can change their probability.</p>
+<p>If I hear thunder, it might change my prediction about rain and vice versa.</p>
+<p><strong>Joint Entropy</strong>
+The amount of uncertainty contained in two variables together:</p>
+<p>\(H(x,y) = - \sum P(x,y) \cdot \log P(x,y)\)</p>
+<p><strong>Joint Entropy</strong>
+\(H(y|x) = - \sum P(x,y) \cdot \log P(y|x)\)</p>
+<p><strong>Mutual information</strong> measures the amount of shared information between two variables, by quantifying the reduction in uncertainty of one variable given knowledge of the other — i.e., statistical dependence.</p>
+<p>I(X;Y) = H(Y) - H(Y|X)</p>
+<p>It is symmetric: </p>
+<p>I(Y;X) = I(X;Y) = H(Y)−H(Y∣X) = H(X)−H(X∣Y)</p>
 
 
 
