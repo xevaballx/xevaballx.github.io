@@ -1227,6 +1227,9 @@ Q(s, a) \leftarrow Q(s, a) + \alpha \cdot \big[ \text{target} - Q(s, a) \big]
 </tr>
 </tbody>
 </table>
+<p>The main difference between Value Iteration (VI) and Policy Iteration (PI) is how they update the policy:</p>
+<p>VI updates the value function first, using the Bellman optimality equation, and derives the policy afterward.</p>
+<p>PI starts with a policy and alternates between evaluating the current policy and improving it based on the value estimates.</p>
 
 
 
