@@ -959,25 +959,38 @@
 <p>SVMs can overfit if the <strong>kernel</strong> or <strong>regularization parameter</strong> is poorly chosen, but they are generally more robust to noise than instance-based methods, since irrelevant data points that do not affect the margin are ignored.</p>
 <p>Training time can be high due to solving a convex optimization problem, but inference is efficient and depends only on the number of support vectors.</p>
 <h2 id="svm-basic-idea">SVM: Basic Idea<a class="headerlink" href="#svm-basic-idea" title="Permanent link">&para;</a></h2>
-<p>Given:
-- Training data: \( D = {(x_1, y_1), \dots, (x_n, y_n)} \), where \( y_i \in {-1, +1} \)
-- Input feature space: \( \mathbb{R}^d \)
-- Optional kernel function: \( K(x_i, x_j) \)</p>
+<p>Given:<br />
+- Training data: \( D = {(x_1, y_1), \dots, (x_n, y_n)} \), where \( y_i \in {-1, +1} \)  </p>
+<ul>
+<li>
+<p>Input feature space: \( R^d \)  </p>
+</li>
+<li>
+<p>Optional kernel function: \( K(x_i, x_j) \)  </p>
+</li>
+</ul>
 <p>Steps:
 1. Maximize the margin between classes by solving:
-   \( \min_{\mathbf{w}, b} \frac{1}{2} |\mathbf{w}|^2 \quad \text{subject to } y_i(\mathbf{w}^\top x_i + b) \geq 1 \)
-2. For non-linearly separable data, add slack variables and regularization:
-   \( \min_{\mathbf{w}, b, \xi} \frac{1}{2} |\mathbf{w}|^2 + C \sum \xi_i \)
-3. Use the kernel trick to replace dot products:
-   \( K(x_i, x_j) = \phi(x_i)^\top \phi(x_j) \)
-4. Prediction function:
+   \( \min_{w, b} \frac{1}{2} |w|^2 \quad \text{subject to } y_i(w^\top x_i + b) \geq 1 \)</p>
+<ol>
+<li>
+<p>For non-linearly separable data, add slack variables and regularization:<br />
+   \( \min_{w, b, \xi} \frac{1}{2} |w}|^2 + C \sum \xi_i \)</p>
+</li>
+<li>
+<p>Use the kernel trick to replace dot products:<br />
+   \( K(x_i, x_j) = \phi(x_i)^\top \phi(x_j) \)</p>
+</li>
+<li>
+<p>Prediction function:<br />
    \( f(x) = \text{sign} \left( \sum_{i \in \text{SV}} \alpha_i y_i K(x_i, x) + b \right) \)</p>
+</li>
+</ol>
 <h2 id="preference-bias">Preference Bias<a class="headerlink" href="#preference-bias" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Maximum Margin</strong> – Prefers decision boundaries that maximize distance from the closest points.</li>
-<li><strong>Support Vector Focus</strong> – Only the most critical training points (support vectors) define the boundary.</li>
-<li><strong>Kernel Assumption</strong> – Assumes data can be linearly separable in some higher-dimensional space.</li>
-<li><strong>Global Model</strong> – Learns a single, global decision function for the entire input space.</li>
+<li><strong>Maximum Margin</strong>: Prefers decision boundaries that maximize distance from the closest points.  </li>
+<li><strong>Support Vector Focus</strong>: Only the most critical training points (support vectors) define the boundary.  </li>
+<li><strong>Kernel Assumption</strong>: Assumes data can be linearly separable in some higher-dimensional space.  </li>
 </ol>
 
 
