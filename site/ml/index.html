@@ -517,11 +517,55 @@
   
   
     <li class="md-nav__item">
+      <a href="instance_based/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instance Based Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="nn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Neural Nets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="svm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SVM
     
   </span>
   
@@ -952,7 +996,7 @@ Target concept should have training error of zero.<br />
 <p>So we are not penalized for examples that we never see. And examples that we see rarely, we only get a time bit of contribution to the overall error.</p>
 <p>C is PAC-Learnable by <em>L</em> using <em>H</em>, \(iff\) learning <em>L</em> will, with high probability ( at least \(  1-\delta\)), output a hypothesis h \(\in\) <em>H</em> that it is very accurate \( (error_D(h) \leq \epsilon)\); and in time and samples it is bounded by polynomial in \(  1/\epsilon, 1/\delta,\)and n. </p>
 <p>If we want perfect error and perfect certainty than the denominators go to infinity as we look at all the data.</p>
-<p>Meaning: something is PAC-Learnable if we can learn to get a low error, with high confidence, in time that is sort of polynomial in all the parameters.</p>
+<p><strong>Something is PAC-learnable if we can learn a hypothesis with low error and high confidence in polynomial time. Sample complexity tells us how many training examples we need to guarantee this level of performance.</strong> </p>
 <ul>
 <li>True Hypothesis: \(  c \in  H \) : hypothesis aka function</li>
 <li>Concept: <em>c</em> aka label</li>
@@ -961,8 +1005,8 @@ Target concept should have training error of zero.<br />
 <li>Size of the hypothesis space: |H|: n  </li>
 <li>Distribution over inputs: D </li>
 <li><strong>Version Space</strong>: VS(S) = { <em>h</em> s.t. h \(\in H \text{consistent wrt} S\) : hypothesis consistent with examples : <strong>the function we learned labels the data correctly</strong>.   </li>
-<li>Error Goal: \(   0 \leq \epsilon \leq 1/2\) : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  <em>Approximately</em>  </li>
-<li>Certainty Goal: \(   0 \leq \delta 1/2\) : We might be unlucky and not meet our error goal, \(   \delta\)allows us to set a certainty goal, which means with \(   P(1 - \delta)\), the algorithm has to work. To work, here, means to produce a True Error \(   \leq to \epsilon\). <em>Probably</em></li>
+<li>Error Goal: \(   0 \leq \epsilon \leq 1/2\) : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  <em>Approximately</em> in PAC  </li>
+<li>Certainty Goal: \(  0 \leq \delta \leq 1/2\) : We might be unlucky and not meet our error goal, \(  \delta\) allows us to set a certainty goal, which means with \(   P(1 - \delta)\), the algorithm has to work. To work, here, means to produce a True Error \( \leq  \epsilon\). <em>Probably</em> in PAC. \(   \delta\) is our confidence paramater in PAC</li>
 </ul>
 <p>Haussler's Theorem (Realizable Case)</p>
 <p>Let H be a finite hypothesis class, and let h \(\in\) H be a hypothesis consistent with a training set of <em>m</em> examples drawn i.i.d. from an unknown distribution <em>D</em>. Suppose the target function <em>f</em> is h \(\in\) H (i.e., the realizable case).</p>
@@ -994,7 +1038,7 @@ m \geq \frac{1}{\epsilon} \left( (8 \cdot VC |H|) \cdot \log_2 + 4\log_2 \frac{2
 <p>Example:
 X: {1,2,3,4,5,6,7,8,9,10}<br />
 H: {h(x) = x \(  \leq \theta \)}</p>
-<p>|H| = \(  \infinite \)</p>
+<p>|H| = \(  \infty \)</p>
 <p>But only \(  \theta \) above 10 is important</p>
 <p>VC Dimension it the maximum number of points that can be shattered by the hypotheses in that space.</p>
 <p>Shatter: For every possible labeling (0/1 classification) of the points, there exists a hypothesis (a classifier from your class) that perfectly separates the points according to that labeling.</p>

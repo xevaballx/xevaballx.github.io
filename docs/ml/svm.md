@@ -1,9 +1,9 @@
 
 # Support Vector Machines (SVMs)
 
-Support Vector Machines are **model-based supervised learning algorithms** used for **classification** and **regression**. Unlike instance-based methods, SVMs **learn an explicit decision boundary** by optimizing a global objective during training. They aim to find the **hyperplane** that maximally separates classes with the **largest margin**.
+Support Vector Machines are **model-based supervised learning algorithms** used for classification and regression. Unlike instance-based methods, SVMs learn an explicit decision boundary by optimizing a global objective during training. They aim to find the **hyperplane** that maximally separates classes with the **largest margin**.
 
-Although SVMs build a global model, only a subset of the training examples—called **support vectors**—are used to define the decision boundary. Because of this, SVMs are sometimes considered **partially instance-based**, but they are fundamentally **eager learners**.
+Although SVMs build a global model, only a subset of the training examples, **support vectors**, are used to define the decision boundary. 
 
 SVMs work well for **both linearly and non-linearly separable data** by using the **kernel trick**, which implicitly maps data into higher-dimensional spaces where separation is possible.
 
