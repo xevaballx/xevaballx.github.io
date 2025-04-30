@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../bayes_learning/">
+        <link rel="prev" href="../nn/">
       
       
-        <link rel="next" href="../instance_based/">
+        <link rel="next" href="../../nlp/">
       
       
       <link rel="icon" href="../../assets/images/favicon.ico">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Decision Trees - AI and ML Notes</title>
+        <title>SVM - AI and ML Notes</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#decision-trees" class="md-skip">
+        <a href="#support-vector-machines-svms" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Decision Trees
+              SVM
             
           </span>
         </div>
@@ -418,31 +418,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Decision Trees
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../decision_trees/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -452,89 +431,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#id3-algo" class="md-nav__link">
-    <span class="md-ellipsis">
-      ID3 Algo
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inductive-bias" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inductive Bias
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#continuous-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Continuous Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stopping-point" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stopping Point
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regression" class="md-nav__link">
-    <span class="md-ellipsis">
-      Regression
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lazy-vs-eager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lazy vs Eager
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pruning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pruning
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -588,10 +484,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../svm/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SVM
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -601,6 +518,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#svm-basic-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      SVM: Basic Idea
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preference-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preference Bias
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -964,63 +919,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#id3-algo" class="md-nav__link">
+  <a href="#svm-basic-idea" class="md-nav__link">
     <span class="md-ellipsis">
-      ID3 Algo
+      SVM: Basic Idea
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#inductive-bias" class="md-nav__link">
+  <a href="#preference-bias" class="md-nav__link">
     <span class="md-ellipsis">
-      Inductive Bias
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#continuous-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Continuous Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stopping-point" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stopping Point
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regression" class="md-nav__link">
-    <span class="md-ellipsis">
-      Regression
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lazy-vs-eager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lazy vs Eager
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pruning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pruning
+      Preference Bias
     </span>
   </a>
   
@@ -1042,84 +952,33 @@
 
 
 
-<h1 id="decision-trees">Decision Trees<a class="headerlink" href="#decision-trees" title="Permanent link">&para;</a></h1>
-<p>Decision Trees are a form of classification learning.
-Decision Trees are representations of our <strong>features</strong> and we need to determine representation before deciding on algo. First we identify our problem (root question). Then we identify attributes/features and ask questions about those. These are the <strong>decision nodes</strong>. Examples: Is it raining? What type of restaurant is it? </p>
-<p><strong>Edges</strong> represent the <strong>value</strong> of each decision node. Examples: Yes and No. Pizza, Thai, Mexican. </p>
-<p>The <strong>leaf</strong> is the answer to the problem (root question), output. Example: Should we each in this restaurant? Should I play tennis? Leaf is yes or no.</p>
-<p>We need to build a decision tree as a result of processing training data. The order of our decision nodes should correlate to the node's ability to reduce space (number of nodes?). All nodes/features may not be necessary to make our root decision. If we only want to play tennis if its not raining, that might be near the top of our tree as it can rule out other branches and other features.</p>
-<p>Naive Decision Tree algo (to build a tree)
-1. Pick the "best" feature — ideally one that splits the data in half or reduces entropy the most
-2. Ask a question based on this feature
-3. Follow the answer path
-4. If not a leaf node, go back to step 1 with the remaining features and data subset.</p>
-<p>Problem here is that we have to follow <em>all</em> possible paths and think of all possible best next features until we can completely answer any question. So we aren't <em>learning</em> the tree, we are using a brute-force approach to build it.</p>
-<p>Given <em>n</em> boolean features, there are \(2^n\) possible ways to arrange the features and \(2^{2^n}\) ways to assign binary labels to those combinations. The hypothesis space (\(2^{2^n}\)) of the decision tree is very expressive because there are many possible functions a decision tree could represent: it has the <em>capacity</em> to represent a massive number of different functions from inputs to outputs.</p>
-<h2 id="id3-algo">ID3 Algo<a class="headerlink" href="#id3-algo" title="Permanent link">&para;</a></h2>
-<p>Loop:<br />
-1. <em>A</em> = 'best' feature based on Best Information Gain.<br />
-2. Assign <em>A</em> as decision feature at this node (ask a question)<br />
-3. For each \(v \in A\), create a branch from current node<br />
-4. Group the training examples where feature <em>A = v</em> into the corresponding branch<br />
-5. If all examples in a branch are of the same class (pure leaf), stop<br />
-6.  Else, repeat the process recursively on that branch with remaining features  </p>
-<p>Example: A is Weather, values are {Sunny, Rainy, Overcast}. A becomes, "What is the Weather?" and \(v \in A\) is one of the possible answers.</p>
-<p><strong>Information Gain</strong> measures how much knowing the value of a feature helps us predict the label of a data point.<br />
-- Before the split on a feature, our data might be a mix of labels (50% Yes, 50% No ~ high uncertainty)<br />
-- After the split, if a feature separates the data such that one side is mostly Yes and the other mostly No, we’ve reduced our uncertainty about the label by asking about that feature.  </p>
-<p>That's the whole goal of decision trees: to use features to reduce label uncertainty step by step.</p>
-<p>\(
-\text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \cdot \text{Entropy}(S_v)
-\)</p>
-<p>Where:<br />
-- <em>S</em> is current set of training examples<br />
-- <em>A</em> is the feature we are evaluating (Weather)
-- <em>Values(A)</em> are the possible values of feature <em>A</em> ({Sunny, Rainy, Overcast})<br />
-- \(S_v\) is subset of <em>S</em> where feature <em>A = v</em><br />
-- <em>Entropy(S)</em> is the entropy of the full set</p>
-<p>Everything after the minus sign in the Information Gain formula represents the expected entropy after the split: the average uncertainty over each subset, weighted by the proportion of examples in that subset.</p>
-<p><strong>Entropy</strong> is the measure of randomness.</p>
-<p>Example: A coin has a 50% chance of producing either outcome, so it has 1 bit of entropy. Vs a coin with two heads, which as no entropy or zero bits.</p>
-<p>\( Entropy(S) = -\sum_{v \in V} p(v) \cdot \log_2 p(v) \)</p>
-<p>\(
-\text{BestFeature} = \underset{A}{\arg\max} \ \text{Gain}(S, A) 
-\quad \text{(i.e., feature that reduces entropy the most)}
-\)</p>
-<h2 id="inductive-bias">Inductive Bias<a class="headerlink" href="#inductive-bias" title="Permanent link">&para;</a></h2>
-<p>There are two kinds of bias we need to consider when designing any classifier:</p>
-<p><strong>Restriction Bias</strong>: H<br />
-This bias arises automatically from our choice of hypothesis set, H. It limits the functions we are capable of learning. When using decision trees, <em>H</em> includes only functions that can be represented by decision trees: this is our restriction bias.</p>
-<p><strong>Preference Bias</strong> \( h \in H \)<br />
-Given \( h \in H \), this is the bias toward which hypotheses within <em>H</em> we prefer. It influences how we search within <em>H</em>, and determines which solutions we favor when multiple hypotheses fit the data.</p>
-<p>So which decision would ID3 prefer:<br />
-- Good <strong>splits</strong> near the top: ID3 greedily chooses features with the highest information gain from the top down. 
-- <strong>Correct</strong> over incorrect: ID3 expands nodes until all training examples are correctly classified.
-- <strong>Shallow trees (implicitly)</strong>: Because it prioritizes informative splits early, ID3 tends to prefer trees with shallower depth, even though this is not explicitly enforced.</p>
-<h2 id="continuous-features">Continuous Features<a class="headerlink" href="#continuous-features" title="Permanent link">&para;</a></h2>
-<p>ID3 attempts to split on <em>every possible value</em> for \(v \in A\). This is infeasible for many features especially continuous ones. The solution is to discretize or bin values. Example: If A = age, we could create a value like v = 20 &lt; Age &lt; 30.</p>
-<h2 id="stopping-point">Stopping Point<a class="headerlink" href="#stopping-point" title="Permanent link">&para;</a></h2>
-<p>ID3 stops expanding the tree when all training examples are perfectly classified: when every leaf is pure. This may lead to very deep trees and overfitting, especially if the data contains noise or exceptions.</p>
-<p>Example: Suppose Alice plays tennis when it’s raining and windy, but Tony does not. If these cases contradict, the naive ID3 algorithm would keep splitting forever in an attempt to fit both.</p>
-<p>Solution: <strong>Validation-based early stopping</strong><br />
-Hold out a validation set. Each time the tree expands, evaluate performance on the validation data. If adding a split doesn’t reduce validation error meaningfully, stop expanding. This prevents overfitting and infinite splitting on noisy examples.</p>
-<h2 id="regression">Regression<a class="headerlink" href="#regression" title="Permanent link">&para;</a></h2>
-<p>While classification predicts discrete labels (<em>yes</em> or <em>no</em>), <strong>regression</strong> predicts continuous numerical values (temperature, price, or age). While classification trees aim to minimize impurity (like Gini or entropy), regression trees aim to minimize a continuous loss function — typically Mean Squared Error (MSE) — to better predict numeric outcomes. While classification trees typically use information gain to decide splits, regression trees minimize a continuous loss function such as Mean Squared Error (MSE).</p>
-<p>\(
-\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2
-\)</p>
-<p>MSE predicts the <strong>average</strong> value of the target variable in each leaf and chooses splits that minimize the variance of the output.</p>
-<p>During training, we do use MSE to decide where to split. But once the tree is built, and we’re assigning predictions to leaves:<br />
-- We don’t need to optimize MSE again.
-- We can just assign the mean of the targets in that leaf.  </p>
-<p>This is equivalent to minimizing MSE within each leaf.</p>
-<h2 id="lazy-vs-eager">Lazy vs Eager<a class="headerlink" href="#lazy-vs-eager" title="Permanent link">&para;</a></h2>
-<p>ID3 is an <strong>eager</strong> algorithm that builds a full decision tree during training, <em>before</em> it sees test data. While a <strong>lazy</strong> algorithm delays computation until a predication is needed.</p>
-<p>A lazy version of ID3 would store the training data and construct just enough of the decision tree on-demand at prediction time to classify the input. This avoids constructing the entire tree ahead of time.</p>
-<h2 id="pruning">Pruning<a class="headerlink" href="#pruning" title="Permanent link">&para;</a></h2>
-<p>Pruning removes unnecessary branches/nodes, resulting in a smaller, more interpretable tree without significantly reducing accuracy, hence it simplifies the model. Because of this reduction in complexity, pruning can reduce overfitting.</p>
-<p>Pruning can affect both breadth and depth.</p>
-<p>Branches that provide little prediction power, meaning they contribute minimally to reducing classification error, are pruned. Pruning is often error-based or impurity-based (entropy) thresholds.</p>
-<p>Pruning does not aim to balance the tree structurally, not concerned with symmetry.</p>
+<h1 id="support-vector-machines-svms">Support Vector Machines (SVMs)<a class="headerlink" href="#support-vector-machines-svms" title="Permanent link">&para;</a></h1>
+<p>Support Vector Machines are <strong>model-based supervised learning algorithms</strong> used for <strong>classification</strong> and <strong>regression</strong>. Unlike instance-based methods, SVMs <strong>learn an explicit decision boundary</strong> by optimizing a global objective during training. They aim to find the <strong>hyperplane</strong> that maximally separates classes with the <strong>largest margin</strong>.</p>
+<p>Although SVMs build a global model, only a subset of the training examples—called <strong>support vectors</strong>—are used to define the decision boundary. Because of this, SVMs are sometimes considered <strong>partially instance-based</strong>, but they are fundamentally <strong>eager learners</strong>.</p>
+<p>SVMs work well for <strong>both linearly and non-linearly separable data</strong> by using the <strong>kernel trick</strong>, which implicitly maps data into higher-dimensional spaces where separation is possible.</p>
+<p>SVMs can overfit if the <strong>kernel</strong> or <strong>regularization parameter</strong> is poorly chosen, but they are generally more robust to noise than instance-based methods, since irrelevant data points that do not affect the margin are ignored.</p>
+<p>Training time can be high due to solving a convex optimization problem, but inference is efficient and depends only on the number of support vectors.</p>
+<h2 id="svm-basic-idea">SVM: Basic Idea<a class="headerlink" href="#svm-basic-idea" title="Permanent link">&para;</a></h2>
+<p>Given:
+- Training data: \( D = {(x_1, y_1), \dots, (x_n, y_n)} \), where \( y_i \in {-1, +1} \)
+- Input feature space: \( \mathbb{R}^d \)
+- Optional kernel function: \( K(x_i, x_j) \)</p>
+<p>Steps:
+1. Maximize the margin between classes by solving:
+   \( \min_{\mathbf{w}, b} \frac{1}{2} |\mathbf{w}|^2 \quad \text{subject to } y_i(\mathbf{w}^\top x_i + b) \geq 1 \)
+2. For non-linearly separable data, add slack variables and regularization:
+   \( \min_{\mathbf{w}, b, \xi} \frac{1}{2} |\mathbf{w}|^2 + C \sum \xi_i \)
+3. Use the kernel trick to replace dot products:
+   \( K(x_i, x_j) = \phi(x_i)^\top \phi(x_j) \)
+4. Prediction function:
+   \( f(x) = \text{sign} \left( \sum_{i \in \text{SV}} \alpha_i y_i K(x_i, x) + b \right) \)</p>
+<h2 id="preference-bias">Preference Bias<a class="headerlink" href="#preference-bias" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Maximum Margin</strong> – Prefers decision boundaries that maximize distance from the closest points.</li>
+<li><strong>Support Vector Focus</strong> – Only the most critical training points (support vectors) define the boundary.</li>
+<li><strong>Kernel Assumption</strong> – Assumes data can be linearly separable in some higher-dimensional space.</li>
+<li><strong>Global Model</strong> – Learns a single, global decision function for the entire input space.</li>
+</ol>
 
 
 
