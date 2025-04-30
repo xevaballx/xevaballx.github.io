@@ -30,11 +30,11 @@ Forms elongated chain-like clusters. Can handle non-spherical shapes but is sens
 4. Repeat steps 2–3 until convergence (no changes or small error).  
 
 - Sensitive to initial centroids and may converge to **local minima**.  
-- Works best with **spherical**, equally sized clusters.  
+- Doesn’t model probability or handle overlapping clusters well.  
+- Works best with **spherical**, equally sized clusters, which can be a problem as shown in the image below.
 
-- Doesn’t model probability or handle overlapping clusters well.
+<img src="../assets/images/kmeans-spheres.png" alt="Kmeans spherical illustration" width="25%">
 
-![Kmeans spherical illustration](../assets/images/kmeans-spheres.png)
 
 ## **Expectation-Maximization (EM)**
 
