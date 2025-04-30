@@ -154,4 +154,8 @@ Q(s, a) \leftarrow Q(s, a) + \alpha \cdot \big[ \text{target} - Q(s, a) \big]
 | **Q-Learning**         | Learn action-value function via experience; off-policy | Doesn’t need model; learns while acting | Slower convergence; sensitive to exploration strategy |
 
 
+The main difference between Value Iteration (VI) and Policy Iteration (PI) is how they update the policy:
 
+VI updates the value function first, using the Bellman optimality equation, and derives the policy afterward.
+
+PI starts with a policy and alternates between evaluating the current policy and improving it based on the value estimates.
