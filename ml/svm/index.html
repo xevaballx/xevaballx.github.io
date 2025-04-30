@@ -954,7 +954,7 @@
 
 <h1 id="support-vector-machines-svms">Support Vector Machines (SVMs)<a class="headerlink" href="#support-vector-machines-svms" title="Permanent link">&para;</a></h1>
 <p>Support Vector Machines are <strong>model-based supervised learning algorithms</strong> used for classification and regression. Unlike instance-based methods, SVMs learn an explicit decision boundary by optimizing a global objective during training. They aim to find the <strong>hyperplane</strong> that maximally separates classes with the <strong>largest margin</strong>. This leaves the biggest margin of error if some hidden dots got discovered. </p>
-<p><img alt="SVM margin illustration" src="assets/images/svm_margin.png" /></p>
+<p><img alt="SVM margin illustration" src="assets/images/SVM_margin.png" /></p>
 <p>Although SVMs build a global model, only a subset of the training examples, <strong>support vectors</strong>, are used to define the decision boundary. </p>
 <p>SVMs work well for <strong>both linearly and non-linearly separable data</strong> by using the <strong>kernel trick</strong>, which implicitly maps data into higher-dimensional spaces where separation is possible.</p>
 <p>SVMs can overfit if the <strong>kernel</strong> or <strong>regularization parameter</strong> is poorly chosen, but they are generally more robust to noise than instance-based methods, since irrelevant data points that do not affect the margin are ignored.</p>
@@ -972,10 +972,12 @@
 <p>Optional kernel function: \( K(x_i, x_j) \)  </p>
 </li>
 </ul>
-<p>Steps:<br />
-1. Maximize the margin between classes by solving:
-   \( \min_{w, b} \frac{1}{2} |w|^2 \quad \text{subject to } y_i(w^\top x_i + b) \geq 1 \)</p>
+<p>Steps:  </p>
 <ol>
+<li>
+<p>Maximize the margin between classes by solving:
+   \( \min_{w, b} \frac{1}{2} |w|^2 \quad \text{subject to } y_i(w^\top x_i + b) \geq 1 \)</p>
+</li>
 <li>
 <p>For non-linearly separable data, add slack variables and regularization:<br />
    \( \min_{w, b, \xi} \frac{1}{2} |w|^2 + C \sum \xi_i \)</p>
