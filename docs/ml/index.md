@@ -65,7 +65,7 @@ As VS|H| gets bigger we need more data.
 **H is PAC-Learnable \\(iff\\) VC dimension is finite.**
 
 
-## VC Dimensions
+### VC Dimensions
 
 VC Dimensions help us determine how much data we need to learn effectively even if the hypothesis class is infinite. It expresses how expressive or powerful a model class is in terms of what patterns it can learn: this is a measure of complexity or capacity. 
 
@@ -96,4 +96,96 @@ Shatter: For every possible labeling (0/1 classification) of the points, there e
 VC dimension depends on the hypothesis class, not strictly the number of input features. Example: Both a circle and a sphere have 2 VC dimensions
 
 High VC dimension mean the model can shatter more configurations, increasing the risk of over fit, likewise lower VC dimensions may to under fitting and poor accuracy if they are too low.
+
+## Information Theory
+
+In ML we want to know:
+
+1. How each input relates to *y*
+2. Which input splits our output best, giving us the most *information* about y
+
+In general every input vector and output vector can be considered a *probability density function*.
+
+**Information Theory** is a mathematical framework that allows us to compare these density functions.
+
+Are input vectors are similar:  **mutual information**
+
+Does this feature have any information: **entropy**
+
+If output is predictable we don't need to communicate. Uncertain, meaningful information is harder to communicate and require more resources.
+
+more predictable \\(\approx\\) less uncertainty \\(\approx\\) less information
+
+Example: Which message has more information?  
+Given:  
+- Language L={A,B,C,D}
+- Each word is represented by 2 bits, and occur with a specified probability.
+
+First lets assume all words occur equally:
+
+A: 00   25%  
+B: 01   25%  
+C: 10   25%  
+D: 11   25%  
+
+We have a sequence spelling BAD: 01 00 11
+
+2 bit (1 or 0) symbol representation means we have to ask two yes or no questions per symbol.
+
+Think of it as a tree. When we have a new bit coming in it can be 0 or 1 equally. So we ask two question, each "Is it 1?"
+
+Is it one? Answer:   0 1  
+Is it one? Answer:0 1   0 1  
+Conclusion:       A B   C D  
+
+Second message:
+
+A: 50%  
+B: 12.5%  
+C: 12.5%  
+D: 25%  
+
+Since A occurs most frequently we can actually use less than two bits to represent each symbol. How should we represent it?
+
+For the tree our first question is "Is it A?"
+
+Is it A?:           0 1   
+Semi-conclusion:    A  
+Is it D?:             0 1  
+Semi-conclusion:      D  
+Is it 1?                0 1   
+                        B C  
+
+So  
+A: 0  
+D: 10  
+B: 110  
+C: 111   
+
+Since A occurs most frequently and we only have to ask one question to determine if the symbol is A, we can ask less questions overall. We use the expected value to find out how much exactly.
+
+\\(\sum P(\text{symbol}) \times \text{size of symbol}\\)(**Entropy**)
+= 1P(A) + 2P(D) + 3P(B) + 3P(C)
+= 0.5 + 0.5 + 0.375 + 0.375
+= 1.75 bits per symbol
+
+= 1.75 bits < 2 bits 
+
+The second language has less information and it called *variable length encoding*. Explains why in morse code some symbols are smaller than others.
+
+**Entropy**
+As shown above:  
+\\(\sum P(\text{symbol}) \times \text{size of symbol}\\)
+
+But we need to denote the size of each symbol more properly:
+
+\\(\sum P(\text{symbol}) \times \frac{1}{P(\text{size of symbol})}\\)
+
+sum of P(symbol) * log 1/P(symbol)
+
+- sum P(S) * log P(S) 
+
+\\(- \sum P(s) \cdot \log_2 P(s)\\)
+
+
 
