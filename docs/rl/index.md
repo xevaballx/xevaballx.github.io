@@ -39,15 +39,34 @@ For a **policy \\( \pi \\)**, the **Bellman Expectation Equation** is:
 V^\pi(s) = \mathbb{E}_\pi \left[ R(s, a) + \gamma V^\pi(s') \right]
 \\)
 
-The Bellman Equation doesn't tell you which action to take — it tells you the expected value (i.e., long-term return) of being in a state (or taking an action in a state) under a specific policy.
+This tells us how to evaluate how good a policy is, but not necessarily which action is best, that requires comparing policies.
 
+Output:  
+- A **value function**:  
+  A table (or function) mapping **each state** \\( s \\) to a **scalar value**:  
+  \\(
+  V^\pi(s_1) = 3.7,\quad V^\pi(s_2) = 1.2,\quad V^\pi(s_3) = 5.0, \ldots
+  \\)  
+
+- This tells you how **good** it is to be in state \\( s \\) when following policy \\( \pi \\)
+
+For finding the optimal policy, we use the Bellman Optimality Equation, which chooses the best possible action in each state:
 
 For the **optimal policy**, the **Bellman Optimality Equation** is:
 
 \\( V^\ast(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V^\ast(s') \right] \\)
 
+Output:  
+- A **value function** representing the **maximum expected return** from each state — assuming optimal behavior  
+- Same format:  
+  \\(
+  V^\ast(s_1) = 6.2,\quad V^\ast(s_2) = 2.9, \ldots
+  \\)
 
-That’s where we actually optimize over actions to find the best action.
+- Often used to derive the **optimal policy**:
+  \\(
+  \pi^\ast(s) = \arg\max_a \mathbb{E}[R(s, a) + \gamma V^\ast(s')]
+  \\)
 
 ## **Value Iteration (VI)**
 
@@ -128,6 +147,17 @@ Where:
 
 So it’s about both **state and action** (not just the state).
 
+Output:  
+- A table of values for **each state-action pair**:  
+ \\(
+  Q^\ast(s_1, a_1) = 4.5,\quad Q^\ast(s_1, a_2) = 2.1,\quad Q^\ast(s_2, a_1) = 5.0, \ldots
+  \\)
+
+- Lets you directly select the best action in each state:  
+  \\(
+  \pi^\ast(s) = \arg\max_a Q^\ast(s, a)
+  \\)
+
 **epsilon decay ration**
 Even if we think a certain action has the highest Q-Value(based on earlier exploration) in a state, we still randomly try other actions with probability epsilon. This helps us discover better actions we might have missed early on.
 
@@ -156,3 +186,5 @@ The main difference between Value Iteration (VI) and Policy Iteration (PI) is ho
 VI updates the value function first, using the Bellman optimality equation, and derives the policy afterward.
 
 PI starts with a policy and alternates between evaluating the current policy and improving it based on the value estimates.
+
+

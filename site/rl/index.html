@@ -1126,9 +1126,6 @@ V^\pi(s) = \mathbb{E}_\pi \left[ R(s, a) + \gamma V^\pi(s') \right]
 <p>The Bellman Equation doesn't tell you which action to take — it tells you the expected value (i.e., long-term return) of being in a state (or taking an action in a state) under a specific policy.</p>
 <p>For the <strong>optimal policy</strong>, the <strong>Bellman Optimality Equation</strong> is:</p>
 <p>\( V^\ast(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V^\ast(s') \right] \)</p>
-<p>\( 
-V^<em>(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V^</em>(s') \right]
-\)</p>
 <p>That’s where we actually optimize over actions to find the best action.</p>
 <h2 id="value-iteration-vi"><strong>Value Iteration (VI)</strong><a class="headerlink" href="#value-iteration-vi" title="Permanent link">&para;</a></h2>
 <p><strong>Value Iteration</strong> is a dynamic programming algorithm that finds the <strong>optimal value function</strong> by repeatedly applying the <strong>Bellman Optimality Equation</strong>. At each step, it updates the value of every state based on the <strong>best possible action</strong>, gradually converging to the optimal value function \( V^* \).</p>
@@ -1136,7 +1133,7 @@ V^<em>(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V^</em>(s') \right]
 <p>\(
 V_{k+1}(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V_k(s') \right]
 \)</p>
-<p>Once \( V^<em> \) has converged, the </em><em>optimal policy</em>* can be extracted by choosing the action that maximizes the expected return:</p>
+<p>Once \( V^\ast \) has converged, the <strong>optimal policy</strong> can be extracted by choosing the action that maximizes the expected return:</p>
 <p>\( \pi^\ast(s) = \arg\max_a \mathbb{E} \left[ R(s, a) + \gamma V^*(s') \right] \)</p>
 <h2 id="policy-iteration-pi"><strong>Policy Iteration (PI)</strong><a class="headerlink" href="#policy-iteration-pi" title="Permanent link">&para;</a></h2>
 <p><strong>Policy Iteration</strong> is a dynamic programming method that alternates between <strong>evaluating a policy</strong> and <strong>improving it</strong> until convergence to the <strong>optimal policy</strong> \( \pi^* \).</p>
@@ -1173,7 +1170,7 @@ Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s,
 </ul>
 <p>Over time, Q-learning converges to the optimal Q-function, and the <strong>optimal policy</strong> is:</p>
 <p>\(
-\pi^<em>(s) = \arg\max_a Q^</em>(s, a)
+\pi^\ast(s) = \arg\max_a Q^\ast(s, a)
 \)</p>
 <p><strong>Q-Values</strong> represent expected cumulative reward for taking a specific action in a given state.</p>
 <p>Q-values represent the <strong>expected cumulative reward</strong> for taking a specific <strong>action</strong> in a given <strong>state</strong>, and then following the policy thereafter. So:</p>
