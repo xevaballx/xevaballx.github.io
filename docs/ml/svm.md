@@ -3,7 +3,7 @@
 
 Support Vector Machines are **model-based supervised learning algorithms** used for classification and regression. Unlike instance-based methods, SVMs learn an explicit decision boundary by optimizing a global objective during training. They aim to find the **hyperplane** that maximally separates classes with the **largest margin**. This leaves the biggest margin of error if some hidden dots got discovered. 
 
-![SVM margin illustration](assets/images/svm_margin.png)
+![SVM margin illustration](assets/images/SVM_margin.png)
 
 
 Although SVMs build a global model, only a subset of the training examples, **support vectors**, are used to define the decision boundary. 
@@ -26,6 +26,7 @@ Given:
 
 
 Steps:  
+
 1. Maximize the margin between classes by solving:
    \\( \min_{w, b} \frac{1}{2} \|w\|^2 \quad \text{subject to } y_i(w^\top x_i + b) \geq 1 \\)
 
