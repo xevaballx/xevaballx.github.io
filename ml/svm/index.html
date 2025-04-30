@@ -954,15 +954,17 @@
 
 <h1 id="support-vector-machines-svms">Support Vector Machines (SVMs)<a class="headerlink" href="#support-vector-machines-svms" title="Permanent link">&para;</a></h1>
 <p>Support Vector Machines are <strong>model-based supervised learning algorithms</strong> used for classification and regression. Unlike instance-based methods, SVMs learn an explicit decision boundary by optimizing a global objective during training. They aim to find the <strong>hyperplane</strong> that maximally separates classes with the <strong>largest margin</strong>. This leaves the biggest margin of error if some hidden dots got discovered. </p>
-<p><img alt="SVM margin illustration" src="assets/svm_margin.png" /></p>
+<p><img alt="SVM margin illustration" src="assets/images/svm_margin.png" /></p>
 <p>Although SVMs build a global model, only a subset of the training examples, <strong>support vectors</strong>, are used to define the decision boundary. </p>
 <p>SVMs work well for <strong>both linearly and non-linearly separable data</strong> by using the <strong>kernel trick</strong>, which implicitly maps data into higher-dimensional spaces where separation is possible.</p>
 <p>SVMs can overfit if the <strong>kernel</strong> or <strong>regularization parameter</strong> is poorly chosen, but they are generally more robust to noise than instance-based methods, since irrelevant data points that do not affect the margin are ignored.</p>
 <p>Training time can be high due to solving a convex optimization problem, but inference is efficient and depends only on the number of support vectors.</p>
 <h2 id="svm-basic-idea">SVM: Basic Idea<a class="headerlink" href="#svm-basic-idea" title="Permanent link">&para;</a></h2>
-<p>Given:<br />
-- Training data: \( D = {(x_1, y_1), \dots, (x_n, y_n)} \), where \( y_i \in {-1, +1} \)  </p>
+<p>Given:  </p>
 <ul>
+<li>
+<p>Training data: \( D = {(x_1, y_1), \dots, (x_n, y_n)} \), where \( y_i \in {-1, +1} \)  </p>
+</li>
 <li>
 <p>Input feature space: \( R^d \)  </p>
 </li>
@@ -970,13 +972,13 @@
 <p>Optional kernel function: \( K(x_i, x_j) \)  </p>
 </li>
 </ul>
-<p>Steps:
+<p>Steps:<br />
 1. Maximize the margin between classes by solving:
    \( \min_{w, b} \frac{1}{2} |w|^2 \quad \text{subject to } y_i(w^\top x_i + b) \geq 1 \)</p>
 <ol>
 <li>
 <p>For non-linearly separable data, add slack variables and regularization:<br />
-   \( \min_{w, b, \xi} \frac{1}{2} |w}|^2 + C \sum \xi_i \)</p>
+   \( \min_{w, b, \xi} \frac{1}{2} |w|^2 + C \sum \xi_i \)</p>
 </li>
 <li>
 <p>Use the kernel trick to replace dot products:<br />
