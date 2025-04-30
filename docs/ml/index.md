@@ -24,7 +24,7 @@ C is PAC-Learnable by *L* using *H*, \\(iff\\) learning *L* will, with high prob
 
 If we want perfect error and perfect certainty than the denominators go to infinity as we look at all the data.
 
-Meaning: something is PAC-Learnable if we can learn to get a low error, with high confidence, in time that is sort of polynomial in all the parameters.
+**Something is PAC-learnable if we can learn a hypothesis with low error and high confidence in polynomial time. Sample complexity tells us how many training examples we need to guarantee this level of performance.** 
 
 - True Hypothesis: \\(  c \in  H \\) : hypothesis aka function
 - Concept: *c* aka label
@@ -33,8 +33,8 @@ Meaning: something is PAC-Learnable if we can learn to get a low error, with hig
 - Size of the hypothesis space: |H|: n  
 - Distribution over inputs: D 
 - **Version Space**: VS(S) = { *h* s.t. h \\(\in H \text{consistent wrt} S\\) : hypothesis consistent with examples : **the function we learned labels the data correctly**.   
-- Error Goal: \\(   0 \leq \epsilon \leq 1/2\\) : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  *Approximately*  
-- Certainty Goal: \\(   0 \leq \delta 1/2\\) : We might be unlucky and not meet our error goal, \\(   \delta\\)allows us to set a certainty goal, which means with \\(   P(1 - \delta)\\), the algorithm has to work. To work, here, means to produce a True Error \\(   \leq to \epsilon\\). *Probably*
+- Error Goal: \\(   0 \leq \epsilon \leq 1/2\\) : We'd like the error in the hypothesis that we produce to be no larger than epsilon.  *Approximately* in PAC  
+- Certainty Goal: \\(  0 \leq \delta \leq 1/2\\) : We might be unlucky and not meet our error goal, \\(  \delta\\) allows us to set a certainty goal, which means with \\(   P(1 - \delta)\\), the algorithm has to work. To work, here, means to produce a True Error \\( \leq  \epsilon\\). *Probably* in PAC. \\(   \delta\\) is our confidence paramater in PAC
 
 Haussler's Theorem (Realizable Case)
 
@@ -85,7 +85,7 @@ Example:
 X: {1,2,3,4,5,6,7,8,9,10}  
 H: {h(x) = x \\(  \leq \theta \\)}
 
-|H| = \\(  \infinite \\)
+|H| = \\(  \infty \\)
 
 But only \\(  \theta \\) above 10 is important
 

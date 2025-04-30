@@ -98,8 +98,24 @@ While classification predicts discrete labels (*yes* or *no*), **regression** pr
 
 MSE predicts the **average** value of the target variable in each leaf and chooses splits that minimize the variance of the output.
 
+During training, we do use MSE to decide where to split. But once the tree is built, and we’re assigning predictions to leaves:  
+- We don’t need to optimize MSE again.
+- We can just assign the mean of the targets in that leaf.  
+
+This is equivalent to minimizing MSE within each leaf.
+
 ## Lazy vs Eager
 
 ID3 is an **eager** algorithm that builds a full decision tree during training, *before* it sees test data. While a **lazy** algorithm delays computation until a predication is needed.
 
 A lazy version of ID3 would store the training data and construct just enough of the decision tree on-demand at prediction time to classify the input. This avoids constructing the entire tree ahead of time.
+
+## Pruning
+
+Pruning removes unnecessary branches/nodes, resulting in a smaller, more interpretable tree without significantly reducing accuracy, hence it simplifies the model. Because of this reduction in complexity, pruning can reduce overfitting.
+
+Pruning can affect both breadth and depth.
+
+Branches that provide little prediction power, meaning they contribute minimally to reducing classification error, are pruned. Pruning is often error-based or impurity-based (entropy) thresholds.
+
+Pruning does not aim to balance the tree structurally, not concerned with symmetry.
