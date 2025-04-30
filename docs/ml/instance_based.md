@@ -28,9 +28,9 @@ Steps:
    - Return the **average value** in \\( N_k(x_q) \\)
 
 Preference Bias:  
-1. Locality: Assumes near points are similar, so it is important to find the right distance function d() based on domain knowledge.
-2. Smoothness: Predicts new values by averaging (or voting over) neighbors, assuming gradual changes in the target function.
-3. Relevance: Assumes all features contribute equally unless weighting or feature selection is applied.
+1. Locality: Assumes near points are similar, so it is important to find the right distance function d() based on domain knowledge.  
+2. Smoothness: Predicts new values by averaging (or voting over) neighbors, assuming gradual changes in the target function.  
+3. Relevance: Assumes all features contribute equally unless weighting or feature selection is applied.  
 
 Distance Functions:  
 Use Euclidean distance when your features are continuous and you care about straight-line distance in geometric space (e.g., image pixel values or spatial data).
