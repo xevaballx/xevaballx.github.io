@@ -44,6 +44,7 @@ nav:
   - Machine Learning:
       - Overview: ml/index.md
       - Bayesian Learning: ml/bayes_learning.md
+      - Clustering: ml/clustering.md
       - Decision Trees: ml/decision_trees.md
       - Instance Based Learning: ml/instance_based.md
       - Neural Nets: ml/nn.md

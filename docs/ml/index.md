@@ -1,14 +1,14 @@
-# Machine Learning
+# **Machine Learning**
 
 [![Watch on YouTube](https://img.youtube.com/vi/DQWI1kvmwRg/3.jpg)](https://www.youtube.com/watch?v=DQWI1kvmwRg)
 
 An inductive learner uses examples to find the best hypothesis h* from some class H. H is the set of possible answers to the problem. Think of hypothesis h as candidate answers.
 
-## Computation Learning Theory
+## **Computation Learning Theory**
 
 log base 2, is like keep dividing by 2
 
-### PAC Learning : Probably Approximately Correct : Error of Hypothesis h 
+### **PAC Learning : Probably Approximately Correct : Error of Hypothesis h** 
 
 Training Error: Fraction of training examples misclassified by h.  
 Target concept should have training error of zero.  
@@ -65,7 +65,7 @@ As VS|H| gets bigger we need more data.
 **H is PAC-Learnable \\(iff\\) VC dimension is finite.**
 
 
-### VC Dimensions
+### **VC Dimensions**
 
 VC Dimensions help us determine how much data we need to learn effectively even if the hypothesis class is infinite. It expresses how expressive or powerful a model class is in terms of what patterns it can learn: this is a measure of complexity or capacity. 
 
@@ -97,7 +97,7 @@ VC dimension depends on the hypothesis class, not strictly the number of input f
 
 High VC dimension mean the model can shatter more configurations, increasing the risk of over fit, likewise lower VC dimensions may to under fitting and poor accuracy if they are too low.
 
-## Information Theory
+## **Information Theory**
 
 In ML we want to know:
 
@@ -114,11 +114,11 @@ Does this feature have any information: **entropy**
 
 If output is predictable we don't need to communicate. Uncertain, meaningful information is harder to communicate and require more resources.
 
-more predictable \\(\approx\\) less uncertainty \\(\approx\\) less information
+more predictable \\(\approx\\) less uncertainty \\(\approx\\) less information \\(\approx\\) less entropy
 
 Example: Which message has more information?  
 Given:  
-- Language L={A,B,C,D}
+- Language L={A,B,C,D}  
 - Each word is represented by 2 bits, and occur with a specified probability.
 
 First lets assume all words occur equally:
@@ -164,16 +164,23 @@ C: 111
 
 Since A occurs most frequently and we only have to ask one question to determine if the symbol is A, we can ask less questions overall. We use the expected value to find out how much exactly.
 
-\\(\sum P(\text{symbol}) \times \text{size of symbol}\\)(**Entropy**)
-= 1P(A) + 2P(D) + 3P(B) + 3P(C)
-= 0.5 + 0.5 + 0.375 + 0.375
-= 1.75 bits per symbol
+\\(\sum P(\text{symbol}) \times \text{size of symbol}\\): (**Entropy**)
+= 1P(A) + 2P(D) + 3P(B) + 3P(C)  
+= 0.5 + 0.5 + 0.375 + 0.375  
+= 1.75 bits per symbol  
 
 = 1.75 bits < 2 bits 
 
-The second language has less information and it called *variable length encoding*. Explains why in morse code some symbols are smaller than others.
+The second language has more information and less randomness.
+
+Note: This technique is called *variable length encoding* and explains why in morse code some symbols are smaller than others.
 
 **Entropy**
+
+Entropy captures the in amount of information contained in the variable by quantifying the uncertainty or unpredictability of the variable. 
+
+higher entropy \\(\approx\\) more uncertainty \\(\approx\\) more information 
+
 As shown above:  
 \\(\sum P(\text{symbol}) \times \text{size of symbol}\\)
 
@@ -181,11 +188,27 @@ But we need to denote the size of each symbol more properly:
 
 \\(\sum P(\text{symbol}) \times \frac{1}{P(\text{size of symbol})}\\)
 
-sum of P(symbol) * log 1/P(symbol)
 
-- sum P(S) * log P(S) 
+\\(H(L) = - \sum P(s) \cdot \log_2 P(s)\\)
 
-\\(- \sum P(s) \cdot \log_2 P(s)\\)
+### **Information Between Variables**
 
+Having information about multiple variables can change their probability.
 
+If I hear thunder, it might change my prediction about rain and vice versa.
 
+**Joint Entropy**
+The amount of uncertainty contained in two variables together:
+
+\\(H(x,y) = - \sum P(x,y) \cdot \log P(x,y)\\)
+
+**Joint Entropy**
+\\(H(y|x) = - \sum P(x,y) \cdot \log P(y|x)\\)
+
+**Mutual information** measures the amount of shared information between two variables, by quantifying the reduction in uncertainty of one variable given knowledge of the other — i.e., statistical dependence.
+
+I(X;Y) = H(Y) - H(Y|X)
+
+It is symmetric: 
+
+I(Y;X) = I(X;Y) = H(Y)−H(Y∣X) = H(X)−H(X∣Y)
