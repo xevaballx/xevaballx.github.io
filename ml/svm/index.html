@@ -953,12 +953,15 @@
 
 
 <h1 id="support-vector-machines-svms">Support Vector Machines (SVMs)<a class="headerlink" href="#support-vector-machines-svms" title="Permanent link">&para;</a></h1>
-<p>Support Vector Machines are <strong>model-based supervised learning algorithms</strong> used for classification and regression. Unlike instance-based methods, SVMs learn an explicit decision boundary by optimizing a global objective during training. They aim to find the <strong>hyperplane</strong> that maximally separates classes with the <strong>largest margin</strong>. This leaves the biggest margin of error if some hidden dots got discovered. </p>
+<p>Support Vector Machines are <strong>model-based supervised learning algorithms</strong> used for classification and regression. They are linear classifier with a kernel trick. Unlike instance-based methods, SVMs learn an explicit decision boundary by optimizing a global objective during training. They aim to find the <strong>hyperplane</strong> that maximally separates classes with the <strong>largest margin</strong>. This leaves the biggest margin of error if some hidden dots got discovered. </p>
 <p><img alt="SVM margin illustration" src="../../assets/images/SVM_margin.png" /></p>
-<p>Although SVMs build a global model, only a subset of the training examples, <strong>support vectors</strong>, are used to define the decision boundary. </p>
-<p>SVMs work well for <strong>both linearly and non-linearly separable data</strong> by using the <strong>kernel trick</strong>, which implicitly maps data into higher-dimensional spaces where separation is possible.</p>
+<p>Although SVMs build a global model, only a subset of the training examples, <strong>support vectors</strong> are used to define the decision boundary. The number of support vectors increases naturally when the data is more complex or less separable, reflecting greater model expressiveness.</p>
+<p>Support vectors are key data points, not features or dimensions.
+The number of support vectors reflects how “hard” the boundary is to define, but it does not correspond to added dimensions in feature space. Kernel functions, not support vectors, are what increase dimensionality.</p>
+<p>SVMs work well for <strong>both linearly and non-linearly separable data</strong> by using the <strong>kernel trick</strong>, which implicitly maps data into higher-dimensional spaces where linear separation is possible.</p>
 <p>SVMs can overfit if the <strong>kernel</strong> or <strong>regularization parameter</strong> is poorly chosen, but they are generally more robust to noise than instance-based methods, since irrelevant data points that do not affect the margin are ignored.</p>
 <p>Training time can be high due to solving a convex optimization problem, but inference is efficient and depends only on the number of support vectors.</p>
+<p>Decision trees can handle linearly separable data, but they are not optimal because they use axis-aligned splits and may require many steps to approximate a linear boundary. Algorithms like logistic regression or linear SVM are typically more efficient in these situations.</p>
 <h2 id="svm-basic-idea">SVM: Basic Idea<a class="headerlink" href="#svm-basic-idea" title="Permanent link">&para;</a></h2>
 <p>Given:  </p>
 <ul>
@@ -997,6 +1000,7 @@
 <li><strong>Support Vector Focus</strong>: Only the most critical training points (support vectors) define the boundary.  </li>
 <li><strong>Kernel Assumption</strong>: Assumes data can be linearly separable in some higher-dimensional space.  </li>
 </ol>
+<p>SVMs resemble instance-based methods (like KNN) in that they rely only on critical training examples at prediction time. But unlike KNN, SVMs perform model-based optimization to identify and retain only the important instances (support vectors), discarding the rest.</p>
 
 
 
