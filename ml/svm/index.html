@@ -953,8 +953,8 @@
 
 
 <h1 id="support-vector-machines-svms">Support Vector Machines (SVMs)<a class="headerlink" href="#support-vector-machines-svms" title="Permanent link">&para;</a></h1>
-<p>Support Vector Machines are <strong>model-based supervised learning algorithms</strong> used for <strong>classification</strong> and <strong>regression</strong>. Unlike instance-based methods, SVMs <strong>learn an explicit decision boundary</strong> by optimizing a global objective during training. They aim to find the <strong>hyperplane</strong> that maximally separates classes with the <strong>largest margin</strong>.</p>
-<p>Although SVMs build a global model, only a subset of the training examples—called <strong>support vectors</strong>—are used to define the decision boundary. Because of this, SVMs are sometimes considered <strong>partially instance-based</strong>, but they are fundamentally <strong>eager learners</strong>.</p>
+<p>Support Vector Machines are <strong>model-based supervised learning algorithms</strong> used for classification and regression. Unlike instance-based methods, SVMs learn an explicit decision boundary by optimizing a global objective during training. They aim to find the <strong>hyperplane</strong> that maximally separates classes with the <strong>largest margin</strong>.</p>
+<p>Although SVMs build a global model, only a subset of the training examples, <strong>support vectors</strong>, are used to define the decision boundary. </p>
 <p>SVMs work well for <strong>both linearly and non-linearly separable data</strong> by using the <strong>kernel trick</strong>, which implicitly maps data into higher-dimensional spaces where separation is possible.</p>
 <p>SVMs can overfit if the <strong>kernel</strong> or <strong>regularization parameter</strong> is poorly chosen, but they are generally more robust to noise than instance-based methods, since irrelevant data points that do not affect the margin are ignored.</p>
 <p>Training time can be high due to solving a convex optimization problem, but inference is efficient and depends only on the number of support vectors.</p>
