@@ -1045,27 +1045,58 @@
 <h2 id="simulated-annealing-sa"><strong>Simulated Annealing (SA)</strong><a class="headerlink" href="#simulated-annealing-sa" title="Permanent link">&para;</a></h2>
 <p>Like hill climbing, but occasionally accepts worse solutions to escape local optima. The probability of accepting worse solutions decreases over time according to a temperature schedule, inspired by the annealing process in metallurgy. Balances exploration and exploitation.</p>
 <p>Steps:<br />
-1. Initialize a random guess \( x \in X \) and a high temperature \( T &gt; 0 \)</p>
-<ol>
-<li>
-<p>Generate a neighbor \( n \in \mathcal{N}(x) \)</p>
-</li>
-<li>
-<p>If \( f(n) &gt; f(x) \), then set \( x \leftarrow n \)</p>
-</li>
-<li>
-<p>Else, accept \( n \) with probability:</p>
-</li>
-</ol>
-<p>\( P = \exp\left( \frac{f(n) - f(x)}{T} \right) \)</p>
-<ol>
-<li>Cool down the temperature: \( T \leftarrow \alpha T \), where \( \alpha \in (0, 1) \)</li>
-</ol>
+1. Initialize a random guess \( x \in X \) and a high temperature \( T &gt; 0 \)<br />
+2. Generate a neighbor \( n \in \mathcal{N}(x) \)<br />
+3. If \( f(n) &gt; f(x) \), then set \( x \leftarrow n \)<br />
+4. Else, accept \( n \) with probability:<br />
+\( P = \exp\left( \frac{f(n) - f(x)}{T} \right) \)<br />
+5. Cool down the temperature: \( T \leftarrow \alpha T \), where \( \alpha \in (0, 1) \)  </p>
 <p>Repeat steps 2–5 until stopping criteria is met (e.g., \( T \) is very small or max iterations reached)</p>
+<p>The acceptance probability is the "else" case is directly related to the difference in fitness between the current solution and the proposed neighbor. If the neighbor is much worse, the exponent becomes very negative, so there’s a lower chance of accepting it. Instead, we stay at the current solution and take our chances trying a different neighbor in the next iteration.</p>
 <h2 id="genetic-algorithms-ga"><strong>Genetic Algorithms (GA)</strong><a class="headerlink" href="#genetic-algorithms-ga" title="Permanent link">&para;</a></h2>
 <p>Inspired by biological evolution. Maintains a population of solutions that evolve over time via selection, crossover, and mutation. Good at global exploration and well-suited for discrete and combinatorial problems, but can be computationally expensive.</p>
+<p>Steps:
+1. Randomly initialize a population P of candidate solutions (chromosomes) of size k
+2. Evaluate the fitness of each individual in the population, all \(x \in P\)
+3. Select parents from the population based on high fitness
+4. <strong>Crossover</strong>: Combine parts of two parents to create offspring
+5. <strong>Mutate</strong> some of the offspring randomly to maintain diversity (exploration)
+6. Evaluate fitness of the offspring
+7. Replace individuals in the population with the new offspring
+8. Go back to step 3 util stopping condition met</p>
 <h2 id="mimic-mutual-information-maximizing-input-clustering"><strong>MIMIC (Mutual Information Maximizing Input Clustering)</strong><a class="headerlink" href="#mimic-mutual-information-maximizing-input-clustering" title="Permanent link">&para;</a></h2>
 <p>A probabilistic optimization method that samples solutions based on a learned probability model. At each iteration, it builds a model from the best samples and uses it to generate better ones. Powerful for problems with interdependent variables, but computationally heavy.</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Best For</th>
+<th>Not Good At</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Randomized Hill Climbing (RHC)</strong></td>
+<td>Fast and simple local search; works well for smooth landscapes with a single peak</td>
+<td>Easily gets stuck in local optima; poor global exploration</td>
+</tr>
+<tr>
+<td><strong>Simulated Annealing (SA)</strong></td>
+<td>Escaping local optima; balancing exploration and exploitation via temperature control</td>
+<td>Requires careful tuning of temperature schedule; still not great for very rugged landscapes</td>
+</tr>
+<tr>
+<td><strong>Genetic Algorithm (GA)</strong></td>
+<td>Exploring large, complex, and discrete search spaces; combinatorial optimization</td>
+<td>Can be slow to converge; sensitive to hyperparameters like mutation and crossover rates</td>
+</tr>
+<tr>
+<td><strong>MIMIC</strong></td>
+<td>Modeling dependencies between variables; structured problems with correlated inputs</td>
+<td>Computationally expensive; not suitable for very large or high-dimensional search spaces</td>
+</tr>
+</tbody>
+</table>
 
 
 
