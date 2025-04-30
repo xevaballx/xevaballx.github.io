@@ -1015,14 +1015,10 @@
 4. Repeat steps 2–3 until convergence (no changes or small error).  </p>
 <ul>
 <li>Sensitive to initial centroids and may converge to <strong>local minima</strong>.  </li>
-<li>
-<p>Works best with <strong>spherical</strong>, equally sized clusters.  </p>
-</li>
-<li>
-<p>Doesn’t model probability or handle overlapping clusters well.</p>
-</li>
+<li>Doesn’t model probability or handle overlapping clusters well.  </li>
+<li>Works best with <strong>spherical</strong>, equally sized clusters, which can be a problem as shown in the image below.</li>
 </ul>
-<p><img alt="Kmeans spherical illustration" src="../../assets/images/kmeans-spheres.png" /></p>
+<p><img src="../assets/images/kmeans-spheres.png" alt="Kmeans spherical illustration" width="25%"></p>
 <h2 id="expectation-maximization-em"><strong>Expectation-Maximization (EM)</strong><a class="headerlink" href="#expectation-maximization-em" title="Permanent link">&para;</a></h2>
 <ul>
 <li>EM is a <strong>probabilistic algorithm</strong> for <strong>maximum likelihood estimation</strong> with <strong>latent variables</strong>.  </li>
