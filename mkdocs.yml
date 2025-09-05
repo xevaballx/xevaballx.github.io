@@ -63,6 +63,8 @@ nav:
   - Reinforcement Learning:
       - Overview: rl/index.md
       - Game Theory: rl/game_theory.md
+  - Trading:
+      - Overview: trading/index.md
 
 
       

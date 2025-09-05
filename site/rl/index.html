@@ -1123,10 +1123,31 @@
 <p>\(
 V^\pi(s) = \mathbb{E}_\pi \left[ R(s, a) + \gamma V^\pi(s') \right]
 \)</p>
-<p>The Bellman Equation doesn't tell you which action to take — it tells you the expected value (i.e., long-term return) of being in a state (or taking an action in a state) under a specific policy.</p>
+<p>This tells us how to evaluate how good a policy is, but not necessarily which action is best, that requires comparing policies.</p>
+<p>Output:<br />
+- A <strong>value function</strong>:<br />
+  A table (or function) mapping <strong>each state</strong> \( s \) to a <strong>scalar value</strong>:<br />
+  \(
+  V^\pi(s_1) = 3.7,\quad V^\pi(s_2) = 1.2,\quad V^\pi(s_3) = 5.0, \ldots
+  \)  </p>
+<ul>
+<li>This tells you how <strong>good</strong> it is to be in state \( s \) when following policy \( \pi \)</li>
+</ul>
+<p>For finding the optimal policy, we use the Bellman Optimality Equation, which chooses the best possible action in each state:</p>
 <p>For the <strong>optimal policy</strong>, the <strong>Bellman Optimality Equation</strong> is:</p>
 <p>\( V^\ast(s) = \max_a \mathbb{E} \left[ R(s, a) + \gamma V^\ast(s') \right] \)</p>
-<p>That’s where we actually optimize over actions to find the best action.</p>
+<p>Output:<br />
+- A <strong>value function</strong> representing the <strong>maximum expected return</strong> from each state — assuming optimal behavior<br />
+- Same format:<br />
+  \(
+  V^\ast(s_1) = 6.2,\quad V^\ast(s_2) = 2.9, \ldots
+  \)</p>
+<ul>
+<li>Often used to derive the <strong>optimal policy</strong>:
+  \(
+  \pi^\ast(s) = \arg\max_a \mathbb{E}[R(s, a) + \gamma V^\ast(s')]
+  \)</li>
+</ul>
 <h2 id="value-iteration-vi"><strong>Value Iteration (VI)</strong><a class="headerlink" href="#value-iteration-vi" title="Permanent link">&para;</a></h2>
 <p><strong>Value Iteration</strong> is a dynamic programming algorithm that finds the <strong>optimal value function</strong> by repeatedly applying the <strong>Bellman Optimality Equation</strong>. At each step, it updates the value of every state based on the <strong>best possible action</strong>, gradually converging to the optimal value function \( V^* \).</p>
 <p>Update rule:</p>
@@ -1183,6 +1204,17 @@ Q(s, a) = \mathbb{E} \left[ \sum_{t=0}^{\infty} \gamma^t R_t \mid s_0 = s, a_0 =
 - \( \gamma \) is the discount factor
 - \( R_t \) are the rewards</p>
 <p>So it’s about both <strong>state and action</strong> (not just the state).</p>
+<p>Output:<br />
+- A table of values for <strong>each state-action pair</strong>:<br />
+ \(
+  Q^\ast(s_1, a_1) = 4.5,\quad Q^\ast(s_1, a_2) = 2.1,\quad Q^\ast(s_2, a_1) = 5.0, \ldots
+  \)</p>
+<ul>
+<li>Lets you directly select the best action in each state:<br />
+  \(
+  \pi^\ast(s) = \arg\max_a Q^\ast(s, a)
+  \)</li>
+</ul>
 <p><strong>epsilon decay ration</strong>
 Even if we think a certain action has the highest Q-Value(based on earlier exploration) in a state, we still randomly try other actions with probability epsilon. This helps us discover better actions we might have missed early on.</p>
 <p><strong>alpha: learning rate</strong>

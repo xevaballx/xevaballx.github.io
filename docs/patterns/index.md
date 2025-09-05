@@ -10,13 +10,11 @@ Reusable code and structures used across domains.
 def my_function(arg1, arg2):
     """Brief summary of function.
 
-    Args:
-        arg1 (type): Description of first argument. (shape)
-        arg2 (type): Description of second argument. (shape)
-
+    Params:
+        arg1, type: Description of first argument. (shape)
+        arg2, type: Description of second argument. (shape)
     Returns:
         type: Description of the return value.
-
     Raises:
         SomeError: When this happens.
     """
@@ -38,6 +36,67 @@ class MyModel:
         self.name = name
 ```
 
+## **Github Workflow**
+
+Note: This doc is based on using the command line (terminal) in VSCode, not the VSCode extension for git.
+
+### 0 Clone the repo
+Go to GitHub in your browser. Go to our team repo and clone the project.
+Click the green “code” button and clone the repo however you like. 
+Copy the link.
+On the command line type:
+`git clone <paste link>`
+
+### 0.1 Get your bearings
+cd into the folder created by cloning, then type:
+`ls` to see all the files
+
+### 1 Ensure you are on the Main Branch
+`git checkout main` 
+
+### 2 Pull any new changes from Main Branch
+Ensure you have the most up-to-date code
+`git pull`
+
+### 3 Create your branch
+`git branch <YourFeatureHere>`
+example: `git branch DogDoorActivator`
+
+### 4 Checkout your branch
+`git checkout <YourFeatureHere>`
+example: `git checkout DogDoorActivator`
+
+### 4.1 Make sure you are where you want to be
+You can always type:
+`git branch` to make sure you are on the branch you want to be on
+
+### 5 Set the remote as upstream so you can eventually push changes to GitHub
+`git push --set-upstream origin DogDoorActivator`
+
+### 6 Write your code on this branch.
+
+### 7 “Commit early push often.”
+We want to push our commits to the GitHub remote feature branch often. When you are done for the day or want to take a break, commit and push.
+From the root of the project folder do all three of the following:
+1. `git add .` this tracks all of the files in this directory and its subdirectories 
+2. `git commit -m “<YourCommitMessageHere>” `
+3. `git push` this pushes any unsynced commits to remote branch on gitHub
+
+### 7.1 Document/Comment and Test
+Comment and test your code before you ask for a PR so the reviewer will have an easier time.
+
+### 8 Pull Request (PR)
+When you are completely done with your feature and you are ready to merge these changes to main, go to the GitHub repo and open a Pull Request (PR) from your branch to Main.
+
+### 9 Ask one of your peers to review. 
+If the peer has changes for you, do those changes on your branch. If it is perfect, they can merge it for you or approve it for you to merge. Click ‘squash and merge’ on the PR.
+
+### 10 Delete your upstream branch on gitHub.
+Or depending on your workflow, you can keep using your branch.
+
+### 11 Repeat for your next feature! 
+Starting at step 1.
+
 ## **General Hyperparameter Tuning Strategy**
 Improve model performance by adjusting key training and model configuration parameters without overfitting or wasting compute.
 
@@ -52,6 +111,8 @@ Start with  baseline:
     - Start with learning rate finder  
     - Often has largest effect on both convergence speed and final performance  
 
+    The learning rate controls the size of step your optimizer takes when updating weights based on the gradient. It's arguably the most important hyperparameter to tune, and should be the the first you tune. A good learning rate balances speed and stability of training, IMO. Too small: slow convergence (or stuck in a local minimum).Too big: diverging loss or oscillating weights. Good: convergences fast to a good minimum. You can use a learning rate finder. Start with a very small learning rate, increase it exponentially, track the loss at each step, and plot loss vs. learning rate. The best learning rate is often just before the loss starts increasing rapidly.
+
 2. Batch Size  
     - Larger batches: more stable gradients but may generalize worse  
     - Smaller batches: more noise, sometimes better generalization
@@ -64,6 +125,8 @@ Start with  baseline:
 4. Regularization  
     - Dropout, weight decay, early stopping, etc.
     - After we have a model that can overfit out data  
+
+    Weight decay is a regularization technique that helps prevent overfitting by discouraging large weights in the model. I do regularization tuning after learning rate, batch size, and model capacity. Decay too small: model may overfit because it memorizes training data. Too high: model underfits because it can’t capture patterns. Good: generalizes well by keeping weights. Start with a small weight decay value and gradually increase it until you see overfitting begin to diminish while training loss stays low. Once you find a good balance, it’s often worth restarting the tuning cycle at the learning rate as you might now be able to improve the loss further with a better learning rate in combination with the new regularization setting.
 
 5.  Optimizer
     _ Different optimizers work better for different problems
