@@ -36,6 +36,8 @@ class MyModel:
         self.name = name
 ```
 
+--
+
 ## **Github Workflow**
 
 Note: This doc is based on using the command line (terminal) in VSCode, not the VSCode extension for git.
@@ -96,6 +98,9 @@ Or depending on your workflow, you can keep using your branch.
 
 ### 11 Repeat for your next feature! 
 Starting at step 1.
+
+## **For this io site**
+After pushing repo, on command line `mkdocs gh-deploy`.
 
 ## **General Hyperparameter Tuning Strategy**
 Improve model performance by adjusting key training and model configuration parameters without overfitting or wasting compute.
