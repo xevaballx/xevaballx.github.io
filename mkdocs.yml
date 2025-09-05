@@ -56,6 +56,7 @@ nav:
   - NLP:
       - Overview: nlp/index.md
       - Distributional Semantics: nlp/distributional_semantics.md
+      - Machine Reading: nlp/machine_reading.md
   - Deep Learning:
       - Overview: dl/index.md
   - AI for Robotics:

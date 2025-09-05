@@ -36,7 +36,7 @@ class MyModel:
         self.name = name
 ```
 
---
+---
 
 ## **Github Workflow**
 
