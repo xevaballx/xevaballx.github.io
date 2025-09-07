@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#nlp-natural-language-processing" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -624,6 +629,20 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -635,6 +654,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#neural-net-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neural Net Language Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Neural Net Language Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nn-corresponding-to-bigram-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      NN corresponding to Bigram Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigram-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigram Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoders-and-decoders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoders and Decoders
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rnn-recurrent-neural-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      RNN Recurrent Neural Network
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1011,6 +1100,67 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#neural-net-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neural Net Language Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Neural Net Language Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nn-corresponding-to-bigram-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      NN corresponding to Bigram Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigram-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigram Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoders-and-decoders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoders and Decoders
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rnn-recurrent-neural-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      RNN Recurrent Neural Network
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1026,9 +1176,65 @@
 
 
 
-  <h1>Overview</h1>
-
-
+<h1 id="nlp-natural-language-processing"><strong>NLP: Natural Language Processing</strong><a class="headerlink" href="#nlp-natural-language-processing" title="Permanent link">&para;</a></h1>
+<h3 id="neural-net-language-models"><strong>Neural Net Language Models</strong><a class="headerlink" href="#neural-net-language-models" title="Permanent link">&para;</a></h3>
+<p>Recall Multinomial Logistic Regression: pass in a sequence of input features to produce a probability distro over classes (labels). Instead for the language model each input is a word and each output class is a different word from our vocabulary. We want to pass in the word and get back the word that comes next.</p>
+<p>Here we borrow a lot from Multinomial Logistic Regression, but we have a couple of issues.
+1. Huge number of output classes
+2. We want to add context. We want to add not only our input word (query), but a few of the words that came before this word, to help us figure out what comes after the query word. w_(t-2), w_(t-1), w.</p>
+<p>Neural Nets (NN) require inputs to be real-value numbers, because NN transform numbers into other numbers. Words are not numbers.</p>
+<p>One-hot vector<br />
+Represents a word as a vector (aka a number) with the same length as the number of words in the vocabulary |V|. [0, 0, 1, 0, ..., 0]</p>
+<p>Token
+Represents a word as the index into the one-hot vector. In the above example our token is 2 since 1 is at index 2.</p>
+<h4 id="nn-corresponding-to-bigram-model"><strong>NN corresponding to Bigram Model</strong><a class="headerlink" href="#nn-corresponding-to-bigram-model" title="Permanent link">&para;</a></h4>
+<p>Take one work in as one-hot.<br />
+Ouputs the word that comes next. As a vector of activations. Every activation corresponds to the word we may want to have come next.</p>
+<p>word t
+^
+[ output activations vector ]<br />
+^<br />
+log softmax over vector to get outputs
+^<br />
+[ vector ]<br />
+^
+Linear (V,V) (W: Linear layer. Does matrix transformations that allows us to convert input values to weights. Recall the output of any linear layer y = Wx + b  (W is weights). W is a big matrix, where dims dictate size of our weights)
+^
+[ one-hot vector of word t-1 ]</p>
+<h4 id="trigram-model"><strong>Trigram Model</strong><a class="headerlink" href="#trigram-model" title="Permanent link">&para;</a></h4>
+<p>Lets us input two works and output one.</p>
+<p>word t
+^
+[ output activations vector ]  (V)
+^<br />
+log softmax over vector to get outputs
+^<br />
+[ vector ]<br />
+^
+Linear (V*2,V)
+^
+[ one-hot vector of word t-2 ][ one-hot vector of word t-1 ]</p>
+<p>We can go on making 4grams etc., but we need to deal with context size, history size. But first we need to look at encoders and decoders.</p>
+<h3 id="encoders-and-decoders">Encoders and Decoders<a class="headerlink" href="#encoders-and-decoders" title="Permanent link">&para;</a></h3>
+<p>Enoders and Decoders are used in lots of different types of NN. Essentially breaks the NN into two parts.</p>
+<p>Encoder: Send input through a smaller-than-necessary layer to force NN to find a small set of params that produce intermediate guess (activations) that approximate output. This is the hidden state and its smaller than vocab.</p>
+<p>We force the NN to make some compromises while it compresses. If get a good set of representation parameters in our linear layer inside our encoder than what comes out of encoder should be able to be uncompressed into something that is useful output.</p>
+<p>With compression we are asking NN to find out what things can be treated similarly and and what things need to be treated differently because we need to fit into smaller vector / hidden state / bunch of activations.</p>
+<p>Decoder: Takes this small vector (hidden state) from encoder and blow it back up to our vocab size. Set of parameters that recover information to produce the output</p>
+<p>So Encoder/Decoder can do the identity function. Get the input, squish everything down, and get the output. (output is prod distro over the classes).</p>
+<p>When the NN compromised we see that 'king' and 'regent' are similar. The decoder output could look like [ ..., .01, 0.39,..., 0.35,...], where the values, respectively correspond to pineapple, king, and regent. And the input into the encode was a one-hot for 'king' only.</p>
+<p>But the identity function isn't really that useful for us. We can use it in the bigram model to predict the <strong>next</strong> word t. Input word t-1, output P(word t | w t-1)</p>
+<p>We don't have to have different architectures for every different size n-gram, aka for every different length of context/history (input)</p>
+<h3 id="rnn-recurrent-neural-network"><strong>RNN Recurrent Neural Network</strong><a class="headerlink" href="#rnn-recurrent-neural-network" title="Permanent link">&para;</a></h3>
+<p>One architecture that can deal with arbitrary sized input sequences. </p>
+<p>Hidden state is like a summary/simplification/compressed of inputs: encoding of important information.</p>
+<p>The new input is hidden state t-1 plus word t-1.</p>
+<p>Cross Entropy Loss:
+1. loss = -logP(w_i)
+2. loss is how far away from 0.0 in the target index position.</p>
+<p>One of the words in the vocab vector will have the highest activation.</p>
+<p>Which index corresponds to the target index (token), what is the activation (prob) 
+there? If it's close to zero, that means our loss is close to zero and that means we almost got the word right.</p>
 
 
 
